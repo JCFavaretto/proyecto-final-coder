@@ -40,9 +40,9 @@ function obtenerProductos() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve([
-        { id: 1, nombre: "Celular" },
-        { id: 2, nombre: "Televisor" },
-        { id: 3, nombre: "Heladera" },
+        { id: 1, nombre: "Auto" },
+        { id: 2, nombre: "Notebook" },
+        { id: 3, nombre: "Batidora" },
       ]);
     }, 2000);
   });
