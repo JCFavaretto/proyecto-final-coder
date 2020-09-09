@@ -1,0 +1,5 @@
+.producto{
+    flex-basis: calc(33%);
+    border: 2px solid var(--color-fondo1);
+    padding: 1rem;
+}

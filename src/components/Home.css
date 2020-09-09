@@ -1,0 +1,24 @@
+.home {  
+    background-color: var(--color-fondo2);
+    border: 2px solid var(--color-fuente3);
+    border-radius: 0.8rem;
+    padding: 2rem 1rem;
+    margin: 0.8rem auto;
+    max-width: calc(80rem + 1vw);
+    width: 90%;
+}
+
+
+.saludo {
+    color: var(--color-fuente3);
+    font-size: calc( 3rem + 1vw ) ;
+    margin: 0 0 2rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-fondo);
+}
+
+.txtHome {
+    color: var(--color-fuente3);
+    font-size: calc( 1.4rem + 0.8vw) ;
+    padding: 0 1rem;
+}

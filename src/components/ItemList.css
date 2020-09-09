@@ -1,0 +1,9 @@
+.lista-prod{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    list-style: none;
+    padding: 0;
+
+}
+

@@ -1,0 +1,10 @@
+.ellipsis{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .ellipsis{
+    display: flex;
+
+    }
+}
