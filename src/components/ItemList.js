@@ -17,7 +17,7 @@ export default function ItemList({ max }) {
 
   const obtenerProductos = async () => {
     const producto = await fetch(
-      `https://api.mercadolibre.com/sites/MLA/search?category=1182&&limit=${max}`
+      `https://api.mercadolibre.com/sites/MLA/search?category=1144&&limit=${max}`
     );
     const lista = await producto.json();
     setProductos(lista.results);

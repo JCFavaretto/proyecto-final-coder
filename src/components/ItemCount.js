@@ -29,7 +29,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form className="item-count" onSubmit={onFormSubmit}>
       <div className="btn btn-contador">
         <button className="btn-resta" type="button" onClick={restar}>
           -
@@ -47,7 +47,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
         </button>
       </div>
 
-      <button type="submit" className="btn btn-agregar">
+      <button type="submit" className="btn">
         Agregar a carrito
       </button>
     </form>

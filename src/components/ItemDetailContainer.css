@@ -4,7 +4,13 @@
     align-items: center;
 }
 
+.img-productos {
+    width: 80px;
+}
+
+
 .texto-producto {
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -18,10 +18,8 @@ const ItemDetailContainer = ({ id }) => {
     const data = await fetch(`https://api.mercadolibre.com/items/${id}`);
     const producto = await data.json();
     setProducto(producto);
-
     const img = await producto.pictures;
     setImg(img[0]);
-
     setLoading(false);
   };
 
@@ -38,7 +36,7 @@ const ItemDetailContainer = ({ id }) => {
         <div className="home contenedor">
           <h3 className="saludo">{producto.title}</h3>
           <div className="producto">
-            <img src={img.secure_url} alt="" />
+            <img className="img-producto" src={img.secure_url} alt="" />
             <div className="texto-producto">
               <p>${producto.price}</p>
               <div className="caja-compra">
@@ -49,7 +47,7 @@ const ItemDetailContainer = ({ id }) => {
                   min={0}
                   onAdd={0}
                 />
-                <button className="btn btn-agregar">Comprar</button>
+                <button className="btn">Comprar</button>
               </div>
             </div>
           </div>
