@@ -1,16 +1,42 @@
 .producto {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    background-color: var(--color-fondo2);
 }
 
-.img-productos {}
+
+@media only screen and (max-width: 900px) {
+    .producto {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .img-producto {
+        max-width: 40rem;
+
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .producto {
+        flex-wrap: wrap;
+    }
+
+    .img-producto {
+        max-width: 250px;
+    }
+}
 
 
 .texto-producto {
-    flex: 0 0 calc(60%);
+    flex: 1 0 calc(30%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    color: var(--color-fuente3);
+}
+
+.texto-producto p {
+    font-size: calc(1.5rem + 1vw);
 }

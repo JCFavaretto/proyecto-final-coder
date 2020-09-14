@@ -14,7 +14,7 @@ export function Home({ greeting }) {
           excepturi reiciendis adipisci vel?
         </p>
       </div>
-      <ItemList max={8} />
+      <ItemList className="lista-home" max={8} />
     </div>
   );
 }

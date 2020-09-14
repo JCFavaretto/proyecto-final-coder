@@ -34,10 +34,10 @@ const ItemDetailContainer = ({ id }) => {
       return (
         <div className="home contenedor">
           <h3 className="saludo">{producto.title}</h3>
-          <div className="producto">
+          <div className="producto contenedor">
             <img className="img-producto" src={img.secure_url} alt="" />
             <div className="texto-producto">
-              <p>${producto.price}</p>
+              <p>Precio: ${producto.price}</p>
               <div className="caja-compra">
                 <h3>Ingrese la cantidad</h3>
                 <ItemCount
