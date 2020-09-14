@@ -4,13 +4,11 @@
     align-items: center;
 }
 
-.img-productos {
-    width: 80px;
-}
+.img-productos {}
 
 
 .texto-producto {
-
+    flex: 0 0 calc(60%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

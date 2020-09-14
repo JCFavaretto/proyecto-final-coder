@@ -26,7 +26,6 @@ const ItemDetailContainer = ({ id }) => {
   if (loading) {
     return (
       <div className="home contenedor">
-        <h3 className="saludo">Lista de Productos</h3>
         <p className="loading">Cargando...</p>
       </div>
     );

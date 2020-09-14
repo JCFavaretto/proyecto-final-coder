@@ -1,11 +1,8 @@
 .home {
-    background-color: var(--color-fondo2);
     border: 2px solid var(--color-fuente3);
     border-radius: 0.8rem;
     padding: 2rem 1rem;
     margin: 0.8rem auto;
-    max-width: calc(80rem + 1vw);
-    width: 90%;
 }
 
 

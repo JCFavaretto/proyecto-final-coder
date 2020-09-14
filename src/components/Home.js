@@ -4,7 +4,7 @@ import ItemList from "./ItemList";
 
 export function Home({ greeting }) {
   return (
-    <div className="home">
+    <div className="home contenedor">
       <div className="saludo">
         <h1>Bienvenido, {greeting}!</h1>
         <p className="txtHome">
