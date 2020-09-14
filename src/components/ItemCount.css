@@ -45,7 +45,8 @@
 }
 
 .btn-resta:focus,
-.btn-suma:focus {
+.btn-suma:focus,
+.btn {
     outline: none;
 }
 
