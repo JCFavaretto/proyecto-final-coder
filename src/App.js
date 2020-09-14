@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import './App.css';
-
-import { NavBar } from './components/NavBar/NavBar.js';
+import "./App.css";
+import { NavBar } from "./components/NavBar/NavBar.js";
 import { Home } from "./components/Home.js";
-import { ItemCount } from "./components/ItemCount.js";
-
+import Cart from "./components/Cart.js";
+import ItemList from "./components/ItemList";
+import ItemDetail from "./components/ItemDetail";
 
 export default function App() {
   let nombre = "Juan";
@@ -14,24 +14,24 @@ export default function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          
+          <Route path="/productos/:id">
+            <ItemDetail />
+          </Route>
           <Route path="/productos">
-            <Home nav='lista-productos' />
+            <ItemList max={12} />
           </Route>
           <Route path="/ingresar">
             <h1 className="inner-test">Iniciar sesión</h1> <br></br>
             <p className="inner-test">Registrar nuevo usuario</p>
           </Route>
           <Route path="/carrito">
-            <h1 className="inner-text">Carrito</h1>
-            <ItemCount initial={0} max={5} min={0} onAdd={0} />
+            <Cart />
           </Route>
           <Route exact path="/">
-            <Home nav='saludo' greeting={nombre} />
+            <Home greeting={nombre} />
           </Route>
-          
         </Switch>
       </BrowserRouter>
     </div>
-  )
- }
+  );
+}

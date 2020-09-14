@@ -1,9 +1,15 @@
-.lista-prod{
+.lista-prod {
     display: flex;
     justify-content: space-around;
     align-self: center;
     list-style: none;
     padding: 0;
-
+    flex-wrap: wrap;
 }
 
+
+
+.loading {
+    font-size: calc(2rem + 1vw);
+    color: var(--color-fuente2);
+}

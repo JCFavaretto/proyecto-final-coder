@@ -4,46 +4,57 @@ import Item from "./Item";
 
 /* rfc */
 
-export default function ItemList() {
+export default function ItemList({ max }) {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    obtenerProductos()
-      .then((productos) => {
-        setProductos(productos);
-      })
-      .catch((err) => {
-        setError(err);
-      });
+    setLoading(true);
+    setError(false);
+    obtenerProductos();
   }, []);
 
-  if (!error) {
+  const obtenerProductos = async () => {
+    const producto = await fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?category=1182&&limit=${max}`
+    );
+    const lista = await producto.json();
+    setProductos(lista.results);
+    setLoading(false);
+  };
+
+  if (loading) {
     return (
       <div className="home contenedor">
         <h3 className="saludo">Lista de Productos</h3>
-        <ul className="lista-prod">
-          {productos.map((producto) => (
-            <Item 
-              key={producto.id} 
-              id={producto.id}
-              nombre={producto.nombre}
-            />
-          ))}
-        </ul>
+        <p className="loading">Cargando...</p>
       </div>
     );
-  } else return <span>{error}</span>;
+  } else {
+    if (!error) {
+      return (
+        <div className="home contenedor">
+          <h3 className="saludo">Lista de Productos</h3>
+          <ul className="lista-prod">
+            {productos.map((producto) => (
+              <Item
+                key={producto.id}
+                id={producto.id}
+                img={producto.thumbnail}
+                nombre={producto.title}
+              />
+            ))}
+          </ul>
+        </div>
+      );
+    } else return <span>{error}</span>;
+  }
 }
 
-function obtenerProductos() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        { id: 1, nombre: "Auto" },
+/*
+{ id: 1, nombre: "Auto" },
         { id: 2, nombre: "Notebook" },
         { id: 3, nombre: "Batidora" },
-      ]);
-    }, 2000);
-  });
-}
+
+*/

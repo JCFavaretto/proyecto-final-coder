@@ -25,36 +25,31 @@ export function ItemCount({ initial, max, min, onAdd }) {
   const onFormSubmit = (e) => {
     e.preventDefault();
     onAdd = count;
-    console.log(count);
+    console.log(onAdd);
   };
 
   return (
-    <div className="cartel">
-      <h3>Ingrese la cantidad</h3>
-      <form onSubmit={onFormSubmit}>
-        <div className="btn btn-contador">
-          <button className="btn-resta" type="button" onClick={restar}>
-            -
-          </button>
-          <input
-            type="number"
-            value={count}
-            className="barra"
-            onChange={(e) => {
-              setCount(e.target.value);
-            }}
-          />
-          <button className="btn-suma" type="button" onClick={sumar}>
-            +
-          </button>
-        </div>
-
+    <form onSubmit={onFormSubmit}>
+      <div className="btn btn-contador">
+        <button className="btn-resta" type="button" onClick={restar}>
+          -
+        </button>
         <input
-          type="submit"
-          className="btn btn-agregar"
-          value="Agregar a carrito"
+          type="number"
+          value={count}
+          className="barra"
+          onChange={(e) => {
+            setCount(e.target.value);
+          }}
         />
-      </form>
-    </div>
+        <button className="btn-suma" type="button" onClick={sumar}>
+          +
+        </button>
+      </div>
+
+      <button type="submit" className="btn btn-agregar">
+        Agregar a carrito
+      </button>
+    </form>
   );
 }

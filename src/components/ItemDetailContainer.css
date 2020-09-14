@@ -1,0 +1,12 @@
+.producto {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.texto-producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

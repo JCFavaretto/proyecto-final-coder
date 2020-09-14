@@ -1,52 +1,22 @@
-.cartel {
-    background-color: var(--color-fondo2);
-    color: var(--color-fuente3);
-    border: 2px solid var(--color-fuente3);
-    border-radius: 2rem;
-    padding: 1rem;
-    margin: 0.8rem auto;
-    width: 14rem;
-    height: 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+.btn {
 
-
-
-.cartel h3{
-    margin: 0 auto;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--color-fondo);
-}
-
-.cartel form{
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.btn{
-    
     border: 1px solid var(--color-fuente3);
     border-radius: 2rem;
     background-color: var(--color-fuente3);
     color: var(--color-fondo);
 }
 
-.btn-contador{
+.btn-contador {
     width: 50%;
     margin: 0;
 }
 
 .btn-suma,
-.btn-resta{
+.btn-resta {
     background-color: var(--color-fuente3);
     color: var(--color-fondo);
-    border:none;
-    padding: 0 ;
+    border: none;
+    padding: 0;
     margin: 0;
     align-items: center;
     width: 21%;
@@ -65,7 +35,7 @@
 }
 
 .btn-resta:focus,
-.btn-suma:focus{
+.btn-suma:focus {
     outline: none;
 }
 
@@ -75,7 +45,7 @@
     margin: 0;
 }
 
-.barra{
+.barra {
     -moz-appearance: textfield;
     margin: 0;
     width: 58%;
@@ -84,8 +54,7 @@
     text-align: center;
 }
 
-.btn-agregar{
-    margin-top: 0.8rem ;
+.btn-agregar {
+    margin-top: 0.8rem;
     padding: 0.4rem;
 }
-
