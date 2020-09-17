@@ -22,6 +22,8 @@
     align-items: center;
     width: 21%;
 
+    font-size: calc(0.5rem + 1vw);
+
 }
 
 .btn-resta {
