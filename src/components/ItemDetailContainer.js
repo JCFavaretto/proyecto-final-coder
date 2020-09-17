@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { ItemCount } from "./ItemCount";
-import "./ItemDetailContainer.css";
+import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
 
-const ItemDetailContainer = ({ id }) => {
+const ItemDetailContainer = () => {
+  const { id } = useParams();
   const [producto, setProducto] = useState([]);
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,27 +32,7 @@ const ItemDetailContainer = ({ id }) => {
     );
   } else {
     if (!error) {
-      return (
-        <div className="home contenedor">
-          <h3 className="saludo">{producto.title}</h3>
-          <div className="producto contenedor">
-            <img className="img-producto" src={img.secure_url} alt="" />
-            <div className="texto-producto">
-              <p>Precio: ${producto.price}</p>
-              <div className="caja-compra">
-                <h3>Ingrese la cantidad</h3>
-                <ItemCount
-                  initial={0}
-                  max={producto.available_quantity}
-                  min={0}
-                  onAdd={0}
-                />
-                <button className="btn">Comprar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+      return <ItemDetail producto={producto} img={img} />;
     } else return <span>{error}</span>;
   }
 };

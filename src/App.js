@@ -5,7 +5,7 @@ import { NavBar } from "./components/NavBar/NavBar.js";
 import { Home } from "./components/Home.js";
 import Cart from "./components/Cart.js";
 import ItemList from "./components/ItemList";
-import ItemDetail from "./components/ItemDetail";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 export default function App() {
   let nombre = "Juan";
@@ -15,7 +15,7 @@ export default function App() {
         <NavBar />
         <Switch>
           <Route path="/productos/:id">
-            <ItemDetail />
+            <ItemDetailContainer />
           </Route>
           <Route path="/productos">
             <ItemList max={12} />
