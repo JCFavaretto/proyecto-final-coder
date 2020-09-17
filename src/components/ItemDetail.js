@@ -8,9 +8,9 @@ const ItemDetail = ({ producto, img }) => {
     <div className="home contenedor">
       <h3 className="saludo">{producto.title}</h3>
       <div className="producto contenedor">
-        <img className="img-producto" src={img.secure_url} alt="" />
-        <div className="texto-producto">
-          <p>Precio: ${producto.price}</p>
+        <img className="home img-producto" src={img.secure_url} alt="" />
+        <div className="home texto-producto">
+          <p className="precio">Precio: ${producto.price}</p>
           <div className="caja-compra">
             <h3>Ingrese la cantidad</h3>
             <ItemCount

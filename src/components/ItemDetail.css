@@ -1,9 +1,12 @@
 .producto {
     display: flex;
     align-items: center;
-    background-color: var(--color-fondo2);
 }
 
+.img-producto {
+    margin: 0 auto;
+
+}
 
 @media only screen and (max-width: 900px) {
     .producto {
@@ -35,6 +38,12 @@
     justify-content: space-between;
     align-items: center;
     color: var(--color-fuente3);
+    background-color: var(--color-fondo2);
+    margin: 1rem;
+}
+
+.precio {
+    margin: 0 auto;
 }
 
 .texto-producto p {
