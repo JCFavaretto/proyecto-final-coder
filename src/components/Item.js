@@ -4,7 +4,7 @@ import "./Item.css";
 
 const Item = ({ id, img, nombre }) => {
   return (
-    <li className="item txtHome">
+    <li className="item home txtHome">
       <img src={img} alt="" />
       <NavLink to={`/productos/${id}`}>{nombre}</NavLink>
     </li>
