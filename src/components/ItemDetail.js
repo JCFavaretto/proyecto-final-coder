@@ -1,5 +1,4 @@
 import React from "react";
-
 import { ItemCount } from "./ItemCount";
 import "./ItemDetail.css";
 
@@ -19,7 +18,7 @@ const ItemDetail = ({ producto, img }) => {
               min={0}
               onAdd={0}
             />
-            <button className="btn">Comprar</button>
+            <button className="btn btn-compra">COMPRAR</button>
           </div>
         </div>
       </div>

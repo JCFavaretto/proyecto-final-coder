@@ -49,3 +49,22 @@
 .texto-producto p {
     font-size: calc(1.5rem + 1vw);
 }
+
+.btn {
+    border: 1px solid var(--color-fuente3);
+    border-radius: 2rem;
+    background-color: var(--color-fuente3);
+    color: var(--color-fuente);
+    font-size: calc(0.5rem + 1vw);
+    padding: 1rem;
+}
+
+.btn-compra {
+    font-size: calc(1rem + 1vw);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
