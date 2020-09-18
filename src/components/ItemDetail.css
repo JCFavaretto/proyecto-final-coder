@@ -6,8 +6,12 @@
 }
 
 .img-producto {
+    border: 2px solid var(--color-fuente3);
+    border-radius: 0.8rem;
+    object-fit: contain;
+    max-height: 40rem;
     width: 60%;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
 }
 

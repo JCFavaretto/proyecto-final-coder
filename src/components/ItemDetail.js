@@ -14,7 +14,7 @@ const ItemDetail = ({ producto, img }) => {
     <div className="home contenedor">
       <h3 className="saludo">{producto.title}</h3>
       <div className="producto contenedor">
-        <img className="home img-producto" src={img.secure_url} alt="" />
+        <img className="img-producto" src={img.secure_url} alt="" />
         <div className="home texto-producto">
           <p className="precio">Precio: ${producto.price}</p>
           <p className="precio">Total: ${producto.price * contador} </p>
