@@ -4,10 +4,10 @@ import "./Item.css";
 
 const Item = ({ id, img, nombre, precio }) => {
   return (
-    <li className="item home txtHome">
-      <img className="img-lista" src={img} alt="" />
+    <li className="item bordes txtHome">
+      <img className="bordes img-lista" src={img} alt="" />
 
-      <div className="txt-lista">
+      <div className="bordes txt-lista">
         <NavLink to={`/productos/${id}`}>{nombre}</NavLink>
         <p className="precio-lista">${precio} </p>
       </div>

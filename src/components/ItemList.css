@@ -1,3 +1,8 @@
+.bordes {
+    border: 2px solid var(--color-fuente3);
+    border-radius: 0.8rem;
+}
+
 .lista-prod {
     display: flex;
     justify-content: space-around;
@@ -8,7 +13,6 @@
 }
 
 .lista-prod li {
-    background-color: var(--color-fuente2);
     flex: 0 0 calc(25% - 0.5rem);
 }
 
@@ -27,7 +31,7 @@
 
 @media only screen and (max-width: 550px) {
     .lista-prod li {
-        flex-basis: calc(90%);
+        flex-basis: calc(85%);
     }
 }
 
