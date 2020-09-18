@@ -8,7 +8,7 @@
 }
 
 .lista-prod li {
-    background-color: var(--color-fondo2);
+    background-color: var(--color-fuente2);
     flex: 0 0 calc(25% - 0.5rem);
 }
 
@@ -25,16 +25,11 @@
     }
 }
 
-
 @media only screen and (max-width: 550px) {
     .lista-prod li {
         flex-basis: calc(90%);
     }
 }
-
-
-
-
 
 .loading {
     font-size: calc(2rem + 1vw);

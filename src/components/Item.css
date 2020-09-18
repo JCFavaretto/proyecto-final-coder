@@ -9,20 +9,48 @@
     align-items: center;
 }
 
-
-
-.item img {
+.img-lista {
     width: 80%;
     border: 2px solid var(--color-fuente3);
     border-radius: 0.8rem;
+    background-color: none;
+    margin-bottom: 0.1rem;
 }
 
-.item a {
+.txt-lista {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.txt-lista a {
     text-decoration: none;
     color: var(--color-fuente3);
+    flex-basis: calc(60% - 3px);
 }
 
-.item a,
-.item p {
+.txt-lista p {
+    flex-basis: calc(40% - 3px);
+}
+
+
+.txt-lista a:hover {
+    color: var(--color-fondo);
+
+}
+
+.txt-lista a,
+.txt-lista p {
     font-size: calc(1.5rem + 1vw);
+}
+
+.precio-lista {
+    background-color: var(--color-fuente3);
+    padding: 0.8rem 2rem;
+    font-size: calc(1rem + 1vw);
+    font-weight: bold;
+    color: var(--color-fuente2);
+    border-radius: 2rem;
+    margin: 0;
 }
