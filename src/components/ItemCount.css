@@ -1,15 +1,24 @@
 .item-count {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 0 auto;
 }
 
 
+.btn {
+    border: 1px solid var(--color-fuente3);
+    border-radius: 2rem;
+    background-color: var(--color-fuente3);
+    color: var(--color-fuente);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    font-size: calc(0.5rem + 1vw);
+}
 
 .btn-contador {
-    width: 50%;
-    margin: 0;
-    padding: 0.6rem 1rem;
+    width: 40%;
 }
 
 .btn-suma,
@@ -17,14 +26,15 @@
     background-color: var(--color-fuente3);
     color: var(--color-fuente);
     border: none;
-    padding: 0;
     margin: 0;
     align-items: center;
     width: 21%;
-
     font-size: calc(0.5rem + 1vw);
-
+    padding: 0.5rem;
 }
+
+
+
 
 .btn-resta {
     border-top-left-radius: 1rem;
@@ -58,7 +68,7 @@
 .barra {
     -moz-appearance: textfield;
     margin: 0;
-    width: 58%;
+    width: 50%;
     color: var(--color-fuente3);
     background-color: var(--color-fuente2);
     text-align: center;

@@ -43,6 +43,7 @@ export default function ItemList({ max }) {
                 id={producto.id}
                 img={producto.thumbnail}
                 nombre={producto.title}
+                precio={producto.price}
               />
             ))}
           </ul>

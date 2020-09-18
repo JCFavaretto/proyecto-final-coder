@@ -4,30 +4,25 @@
     padding: 1rem;
     margin: 0 0 1rem 0;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
-    .item {
-        flex-basis: calc(33%);
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    .item {
-        flex-basis: calc(100%);
-    }
-}
-
-
 
 
 .item img {
-    width: 100%;
+    width: 80%;
+    border: 2px solid var(--color-fuente3);
+    border-radius: 0.8rem;
 }
 
 .item a {
     text-decoration: none;
     color: var(--color-fuente3);
+}
+
+.item a,
+.item p {
+    font-size: calc(1.5rem + 1vw);
 }

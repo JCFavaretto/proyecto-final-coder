@@ -8,9 +8,31 @@
 }
 
 .lista-prod li {
-
     background-color: var(--color-fondo2);
+    flex: 0 0 calc(25% - 0.5rem);
 }
+
+@media only screen and (max-width: 990px) {
+    .lista-prod li {
+        flex-basis: calc(33% - 0.5rem);
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .lista-prod li {
+        flex-basis: calc(50% - 0.5rem);
+    }
+}
+
+
+@media only screen and (max-width: 550px) {
+    .lista-prod li {
+        flex-basis: calc(90%);
+    }
+}
+
+
 
 
 
