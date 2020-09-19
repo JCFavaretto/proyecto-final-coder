@@ -6,7 +6,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
 
   function restar() {
     if (count > min) {
-      setCount(count - 1);
+      setCount((count) => count - 1);
     } else {
       console.log("No se puede bajar mas");
     }
@@ -15,7 +15,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
 
   function sumar() {
     if (count < max) {
-      setCount(count + 1);
+      setCount((count) => count + 1);
     } else {
       console.log("No hay mas stock");
     }
@@ -25,7 +25,11 @@ export function ItemCount({ initial, max, min, onAdd }) {
   const onFormSubmit = (e) => {
     e.preventDefault();
   };
-
+  /* //Cuando quiero usar esta funcion en el onChange dele input no la ejecuta.
+  const handleChange = () => {
+    onAdd(count);
+  };
+*/
   return (
     <form className="item-count" onSubmit={onFormSubmit}>
       <div className="btn btn-contador">
@@ -37,7 +41,6 @@ export function ItemCount({ initial, max, min, onAdd }) {
           value={count}
           className="barra"
           onChange={onAdd(count)}
-          readOnly
         />
         <button className="btn-suma" type="button" onClick={sumar}>
           +
