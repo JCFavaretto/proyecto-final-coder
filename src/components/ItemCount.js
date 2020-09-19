@@ -6,8 +6,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
 
   function restar() {
     if (count > min) {
-      onAdd(count - 1);
-      setCount((count) => count - 1);
+      setCount(count - 1);
     } else {
       console.log("No se puede bajar mas");
     }
@@ -16,8 +15,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
 
   function sumar() {
     if (count < max) {
-      onAdd(count + 1);
-      setCount((count) => count + 1);
+      setCount(count + 1);
     } else {
       console.log("No hay mas stock");
     }
@@ -26,10 +24,6 @@ export function ItemCount({ initial, max, min, onAdd }) {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const onCountChange = (e) => {
-    setCount(e.target.value);
   };
 
   return (
@@ -42,7 +36,8 @@ export function ItemCount({ initial, max, min, onAdd }) {
           type="number"
           value={count}
           className="barra"
-          onChange={onCountChange}
+          onChange={onAdd(count)}
+          readOnly
         />
         <button className="btn-suma" type="button" onClick={sumar}>
           +

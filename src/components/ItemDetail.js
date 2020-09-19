@@ -7,7 +7,6 @@ const ItemDetail = ({ producto, img }) => {
 
   const onAdd = (e) => {
     setContador(e);
-    console.log(contador);
   };
 
   return (
@@ -22,7 +21,7 @@ const ItemDetail = ({ producto, img }) => {
             <h3>Ingrese la cantidad</h3>
             <ItemCount
               initial={contador}
-              max={producto.available_quantity + 10}
+              max={producto.available_quantity + 5}
               min={0}
               onAdd={onAdd}
             />
