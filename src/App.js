@@ -6,6 +6,7 @@ import { Home } from "./components/Home.js";
 import Cart from "./components/Cart.js";
 import ItemList from "./components/ItemList";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import CartProvider from "./components/cartContext";
 
 export default function App() {
   let nombre = "Juan";
@@ -14,22 +15,24 @@ export default function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/productos/:id">
-            <ItemDetailContainer />
-          </Route>
-          <Route path="/productos">
-            <ItemList max={12} />
-          </Route>
-          <Route path="/ingresar">
-            <h1 className="inner-test">Iniciar sesión</h1> <br></br>
-            <p className="inner-test">Registrar nuevo usuario</p>
-          </Route>
-          <Route path="/carrito">
-            <Cart />
-          </Route>
-          <Route exact path="/">
-            <Home greeting={nombre} />
-          </Route>
+          <CartProvider>
+            <Route path="/productos/:id">
+              <ItemDetailContainer />
+            </Route>
+            <Route exact path="/productos">
+              <ItemList max={12} />
+            </Route>
+            <Route path="/carrito">
+              <Cart />
+            </Route>
+            <Route path="/ingresar">
+              <h1 className="inner-test">Iniciar sesión</h1> <br></br>
+              <p className="inner-test">Registrar nuevo usuario</p>
+            </Route>
+            <Route exact path="/">
+              <Home greeting={nombre} />
+            </Route>
+          </CartProvider>
         </Switch>
       </BrowserRouter>
     </div>

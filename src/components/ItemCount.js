@@ -26,10 +26,12 @@ export function ItemCount({ initial, max, min, onAdd }) {
     e.preventDefault();
   };
   /* //Cuando quiero usar esta funcion en el onChange dele input no la ejecuta.
+  
   const handleChange = () => {
     onAdd(count);
   };
-*/
+  
+  */
   return (
     <form className="item-count" onSubmit={onFormSubmit}>
       <div className="btn btn-contador">
