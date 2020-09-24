@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getProductos } from "../../services/getProductos";
 import "./ItemList.css";
 import Item from "../../components/Item/Item";
+import Loading from "../../components/Loading/Loading";
 
 /* rfc */
 
@@ -13,19 +14,17 @@ export default function ItemList({ max }) {
   useEffect(() => {
     setLoading(true);
     setError(false);
-    getProductos(max)
-      .then((data) => setProductos(data))
-      .then(() => setLoading(false));
+    setTimeout(() => {
+      getProductos(max)
+        .then((data) => setProductos(data))
+        .then(() => setLoading(false));
+    }, 1000);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
-    return (
-      <div className="home contenedor">
-        <h3 className="saludo">Lista de Productos</h3>
-        <p className="loading">Cargando...</p>
-      </div>
-    );
+    return <Loading />;
   } else {
     if (!error) {
       return (

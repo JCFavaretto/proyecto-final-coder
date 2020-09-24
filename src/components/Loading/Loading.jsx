@@ -1,12 +1,13 @@
 import React from "react";
 import "./Loading.css";
 
-const Loading = () => {
+export default function Loading() {
   return (
-    <div className="home contenedor">
-      <p className="loading">Cargando...</p>
+    <div className="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
-};
-
-export default Loading;
+}

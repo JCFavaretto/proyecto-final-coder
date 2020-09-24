@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import Cart from "../../context/cartContext";
 import "./ItemCount.css";
 
 export default function ItemCount({ initial, max, min, onAdd }) {
   const [count, setCount] = useState(initial);
+
+  const history = useHistory();
 
   function restar() {
     if (count > min) {
@@ -25,6 +28,9 @@ export default function ItemCount({ initial, max, min, onAdd }) {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    setTimeout(() => {
+      if (count > 0) history.push("/productos");
+    }, 500);
   };
   /* //Cuando quiero usar esta funcion en el onChange dele input no la ejecuta.
   
