@@ -7,7 +7,6 @@ export const getProducto = async (id) => {
     .then((res) => res.json())
 
     .then((data) => {
-      console.log(data);
       const {
         id,
         title,
@@ -26,7 +25,6 @@ export const getProducto = async (id) => {
         secure_thumbnail,
         secure_url,
       };
-      console.log(producto);
       return producto;
     });
 
