@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { NavBar } from "./components/NavBar/NavBar.js";
-import Home from "./sites/Home.js";
-import Cart from "./sites/Cart.js";
-import ItemList from "./sites/ItemList";
+import Home from "./sites/Home/Home.js";
+import Cart from "./sites/Cart/Cart.js";
+import ItemList from "./sites/ItemList/ItemList";
 import ItemDetailContainer from "./sites/ItemDetailContainer";
 import { CartProvider } from "./context/cartContext";
 

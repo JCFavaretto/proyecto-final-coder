@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getProductos } from "../services/getProductos";
+import { getProductos } from "../../services/getProductos";
 import "./ItemList.css";
-import Item from "../components/Item/Item";
+import Item from "../../components/Item/Item";
 
 /* rfc */
 
