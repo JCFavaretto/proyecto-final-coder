@@ -27,7 +27,14 @@ const ItemDetailContainer = () => {
     return <Loading />;
   } else {
     if (!error) {
-      return <ItemDetail producto={producto} />;
+      return (
+        <ItemDetail
+          title={producto.title}
+          imagen={producto.secure_url}
+          price={producto.price}
+          cantidad={producto.available_quantity}
+        />
+      );
     } else return <span>{error}</span>;
   }
 };

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ItemNav } from "./ItemNav.js";
 import { Burguer } from "./Burguer.js";
 import "./NavBar.css";
-import CartIcon from "../CartIcon/CartIcon.jsx";
+import CartIcon from "./CartIcon/CartIcon.jsx";
 
 export function NavBar() {
   return (

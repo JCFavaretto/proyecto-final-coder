@@ -27,14 +27,4 @@ export const getProducto = async (id) => {
       };
       return producto;
     });
-
-  /*
-  const data = await fetch(apiURL);
-  const producto = await data.json();
-  const producto = ;
-
-
-
-  return producto;
-  */
 };

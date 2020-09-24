@@ -33,13 +33,13 @@ export default function ItemList({ max }) {
           <h3 className="saludo">Lista de Productos</h3>
           <ul className="lista-prod">
             {Array.isArray(productos) &&
-              productos.map((producto) => (
+              productos.map(({ id, thumbnail, title, price }) => (
                 <Item
-                  key={producto.id}
-                  id={producto.id}
-                  img={producto.thumbnail}
-                  nombre={producto.title}
-                  precio={producto.price}
+                  key={id}
+                  id={id}
+                  img={thumbnail}
+                  nombre={title}
+                  precio={price}
                 />
               ))}
           </ul>

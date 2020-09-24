@@ -3,7 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ producto }) => {
+const ItemDetail = ({ title, imagen, price, cantidad }) => {
   const [contador, setContador] = useState(0);
 
   const onAdd = (e) => {
@@ -12,17 +12,17 @@ const ItemDetail = ({ producto }) => {
 
   return (
     <div className="home contenedor">
-      <h3 className="saludo">{producto.title}</h3>
+      <h3 className="saludo">{title}</h3>
       <div className="producto contenedor">
-        <img className="img-producto" src={producto.secure_url} alt="" />
+        <img className="img-producto" src={imagen} alt={title} />
         <div className="home texto-producto">
-          <p className="precio">Precio: ${producto.price}</p>
-          <p className="precio">Total: ${producto.price * contador} </p>
+          <p className="precio">Precio: ${price}</p>
+          <p className="precio">Total: ${price * contador} </p>
           <div className="caja-compra">
             <h3>Ingrese la cantidad</h3>
             <ItemCount
               initial={contador}
-              max={producto.available_quantity + 5}
+              max={cantidad + 5}
               min={0}
               onAdd={onAdd}
             />
