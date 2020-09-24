@@ -1,12 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Cart from "../../context/cartContext";
 import "./ItemCount.css";
 
 export default function ItemCount({ initial, max, min, onAdd }) {
   const [count, setCount] = useState(initial);
 
   const history = useHistory();
+
+  useEffect(() => {
+    onAdd(count);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   function restar() {
     if (count > min) {
@@ -46,12 +50,7 @@ export default function ItemCount({ initial, max, min, onAdd }) {
         <button className="btn-resta" type="button" onClick={restar}>
           -
         </button>
-        <input
-          type="number"
-          value={count}
-          className="barra"
-          onChange={onAdd(count)}
-        />
+        <input type="number" value={count} className="barra" />
         <button className="btn-suma" type="button" onClick={sumar}>
           +
         </button>

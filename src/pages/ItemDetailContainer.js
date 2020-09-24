@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
           title={producto.title}
           imagen={producto.secure_url}
           price={producto.price}
-          cantidad={producto.available_quantity}
+          stock={producto.available_quantity}
         />
       );
     } else return <span>{error}</span>;

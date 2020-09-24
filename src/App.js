@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { NavBar } from "./components/NavBar/NavBar.js";
-import Home from "./sites/Home/Home.js";
-import Cart from "./sites/Cart/Cart.js";
-import ItemList from "./sites/ItemList/ItemList";
-import ItemDetailContainer from "./sites/ItemDetailContainer";
+import Home from "./pages/Home/Home.js";
+import Cart from "./pages/Cart/Cart.js";
+import ItemList from "./pages/ItemList/ItemList";
+import ItemDetailContainer from "./pages/ItemDetailContainer";
 import { CartProvider } from "./context/cartContext";
 
 export default function App() {
