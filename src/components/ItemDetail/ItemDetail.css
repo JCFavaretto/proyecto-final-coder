@@ -61,12 +61,19 @@
     font-size: calc(1.5rem + 1vw);
 }
 
+.caja-compra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .btn-compra {
-    font-size: calc(1rem + 1vw);
+    text-decoration: none;
+    font-size: calc(2.5rem + 1vw);
     font-weight: bold;
     margin-top: 1rem;
+    padding: 1.5rem 2rem;
 }
 
 .btn:hover {

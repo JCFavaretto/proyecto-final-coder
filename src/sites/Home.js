@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import ItemList from "./ItemList";
 
-export function Home({ greeting }) {
+export default function Home({ greeting }) {
   return (
     <div className="home contenedor">
       <div className="saludo">

@@ -1,0 +1,4 @@
+.loading {
+    font-size: calc(2rem + 1vw);
+    color: var(--color-fuente2);
+}

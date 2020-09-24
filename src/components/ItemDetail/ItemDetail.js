@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { ItemCount } from "./ItemCount";
+import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({ producto, img }) => {
+const ItemDetail = ({ producto }) => {
   const [contador, setContador] = useState(0);
 
   const onAdd = (e) => {
@@ -13,7 +14,7 @@ const ItemDetail = ({ producto, img }) => {
     <div className="home contenedor">
       <h3 className="saludo">{producto.title}</h3>
       <div className="producto contenedor">
-        <img className="img-producto" src={img.secure_url} alt="" />
+        <img className="img-producto" src={producto.secure_url} alt="" />
         <div className="home texto-producto">
           <p className="precio">Precio: ${producto.price}</p>
           <p className="precio">Total: ${producto.price * contador} </p>
@@ -25,7 +26,9 @@ const ItemDetail = ({ producto, img }) => {
               min={0}
               onAdd={onAdd}
             />
-            <button className="btn btn-compra">COMPRAR {contador} </button>
+            <Link to="/carrito" className="btn btn-compra">
+              COMPRAR
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import Cart from "../../context/cartContext";
 import "./ItemCount.css";
 
-export function ItemCount({ initial, max, min, onAdd }) {
+export default function ItemCount({ initial, max, min, onAdd }) {
   const [count, setCount] = useState(initial);
 
   function restar() {
@@ -32,6 +33,7 @@ export function ItemCount({ initial, max, min, onAdd }) {
   };
   
   */
+
   return (
     <form className="item-count" onSubmit={onFormSubmit}>
       <div className="btn btn-contador">
@@ -49,8 +51,9 @@ export function ItemCount({ initial, max, min, onAdd }) {
         </button>
       </div>
 
-      <button type="submit" className="btn">
-        AGREGAR A CARRITO
+      <button type="submit" className="btn btn-add">
+        AGREGAR<span className="cantidad-btn"> {count ? count : ""} </span>AL
+        CARRITO
       </button>
     </form>
   );

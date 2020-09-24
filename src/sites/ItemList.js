@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { getProductos } from "../services/getProductos";
 import "./ItemList.css";
-import Item from "./Item";
+import Item from "../components/Item/Item";
 
 /* rfc */
 
@@ -12,17 +13,11 @@ export default function ItemList({ max }) {
   useEffect(() => {
     setLoading(true);
     setError(false);
-    obtenerProductos();
+    getProductos(max)
+      .then((data) => setProductos(data))
+      .then(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const obtenerProductos = async () => {
-    const producto = await fetch(
-      `https://api.mercadolibre.com/sites/MLA/search?category=1144&&limit=${max}`
-    );
-    const lista = await producto.json();
-    setProductos(lista.results);
-    setLoading(false);
-  };
 
   if (loading) {
     return (
@@ -37,15 +32,16 @@ export default function ItemList({ max }) {
         <div className="home contenedor">
           <h3 className="saludo">Lista de Productos</h3>
           <ul className="lista-prod">
-            {productos.map((producto) => (
-              <Item
-                key={producto.id}
-                id={producto.id}
-                img={producto.thumbnail}
-                nombre={producto.title}
-                precio={producto.price}
-              />
-            ))}
+            {Array.isArray(productos) &&
+              productos.map((producto) => (
+                <Item
+                  key={producto.id}
+                  id={producto.id}
+                  img={producto.thumbnail}
+                  nombre={producto.title}
+                  precio={producto.price}
+                />
+              ))}
           </ul>
         </div>
       );
