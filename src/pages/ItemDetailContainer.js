@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { getProducto } from "../services/getProducto";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { useProduct } from "../hooks/useProduct";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import Loading from "../components/Loading/Loading";
 
 const ItemDetailContainer = () => {
-  const { id } = useParams();
-  const [producto, setProducto] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setError(false);
-    getProducto(id)
-      .then((data) => {
-        setProducto(() => data);
-      })
-      .then(setLoading(() => false))
-      .catch((error) => setError(error));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { producto, loading, error } = useProduct();
 
   if (loading) {
     return <Loading />;

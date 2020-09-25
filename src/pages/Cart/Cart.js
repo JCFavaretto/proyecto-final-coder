@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import carrito from "../../context/cartContext";
+import React from "react";
+import CartTable from "../../components/CartTable/CartTable";
 
 const Cart = () => {
-  const cart = useContext(carrito);
-  console.log(cart);
   return (
     <div className="home contenedor">
       <h1 className="saludo">Carrito</h1>
+      <CartTable />
     </div>
   );
 };
