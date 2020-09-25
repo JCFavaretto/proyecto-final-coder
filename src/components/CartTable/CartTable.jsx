@@ -11,8 +11,8 @@ const CartTable = () => {
           <th>Cantidad</th>
           <th>Producto</th>
           <th>Descripcion</th>
-          <th>Precio por unidad</th>
-          <th>Precio</th>
+          <th>Precio </th>
+          <th>Total </th>
         </tr>
       </thead>
       <tbody className="body">

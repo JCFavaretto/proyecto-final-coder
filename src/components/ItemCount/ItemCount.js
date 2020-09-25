@@ -7,7 +7,8 @@ import "./ItemCount.css";
 
 export default function ItemCount({ initial, max, min, onAdd }) {
   const [count, setCount] = useState(initial);
-  const [cart, setCart] = useContext(Carrito);
+
+  const [cart, setCart, addToCart] = useContext(Carrito); //eslint-disable-line
   const history = useHistory();
 
   const { producto } = useProduct();
@@ -19,13 +20,6 @@ export default function ItemCount({ initial, max, min, onAdd }) {
     title,
     secure_thumbnail,
     price,
-  };
-  const addToCart = () => {
-    if (Array.isArray(cart)) {
-      setCart(() => [...cart, cartItem]);
-    } else {
-      setCart(() => cartItem);
-    }
   };
 
   useEffect(() => {
@@ -53,18 +47,11 @@ export default function ItemCount({ initial, max, min, onAdd }) {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    addToCart();
+    addToCart(cartItem);
     setTimeout(() => {
       if (count > 0) history.push("/productos");
     }, 500);
   };
-  /* //Cuando quiero usar esta funcion en el onChange dele input no la ejecuta.
-  
-  const handleChange = () => {
-    onAdd(count);
-  };
-  
-  */
 
   return (
     <form className="item-count" onSubmit={onFormSubmit}>
