@@ -24,8 +24,8 @@ const CartTable = () => {
                 <img src={secure_thumbnail} alt={title} />
               </th>
               <th>{title}</th>
-              <th>{price}</th>
-              <th>{price * count}</th>
+              <th>${price}</th>
+              <th>${price * count}</th>
             </tr>
           ))}
       </tbody>
