@@ -2,22 +2,25 @@
     background-color: var(--color-fondo);
     border: 2px solid var(--color-fuente3);
     border-radius: 0.8rem;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     margin: 0.8rem auto;
 }
 
 
 .saludo {
-    color: var(--color-fuente3);
-    font-size: calc(2rem + 1vw);
-    margin: 0 0 2rem 0;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-fondo);
+}
+
+.titulo {
+    font-size: calc(4rem + 1vw);
+    color: var(--color-fuente3);
+    margin: 0;
+    border-bottom: 2px solid var(--color-fuente3)
 }
 
 
 .txtHome {
-    color: var(--color-fuente3);
+    color: var(--color-fuente2);
     font-size: calc(1.4rem + 0.8vw);
     padding: 0 1rem;
 }

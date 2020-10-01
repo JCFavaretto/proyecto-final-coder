@@ -1,24 +1,24 @@
 import React from "react";
-import { useProduct } from "../hooks/useProduct";
+// import { useProduct } from "../hooks/useProduct";
+import { useSingleFirestore } from "../hooks/useSingleFirestore";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import Loading from "../components/Loading/Loading";
 
 const ItemDetailContainer = () => {
-  const { producto, loading, error } = useProduct();
+  const { producto, loading } = useSingleFirestore();
 
   if (loading) {
     return <Loading />;
   } else {
-    if (!error) {
-      return (
-        <ItemDetail
-          title={producto.title}
-          imagen={producto.secure_url}
-          price={producto.price}
-          stock={producto.available_quantity}
-        />
-      );
-    } else return <span>{error}</span>;
+    return (
+      <ItemDetail
+        title={producto.title}
+        imagen={producto.picture}
+        price={producto.price}
+        stock={producto.stock}
+        description={producto.description}
+      />
+    );
   }
 };
 

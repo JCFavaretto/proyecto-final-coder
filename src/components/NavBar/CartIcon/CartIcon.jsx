@@ -7,23 +7,20 @@ import "./CartIcon.css";
 
 const CartIcon = () => {
   const [cantidad, setCantidad] = useState(0);
-  const [cart] = useContext(Carrito);
+  const [{ cart, calcularCantidad }] = useContext(Carrito);
 
-  useEffect(() => {
-    if (cart.length >= 1) {
-      const nuevo = cart[cart.length - 1];
-      const aux = nuevo.count;
-      setTimeout(() => {
-        setCantidad(() => cantidad + aux);
-      }, 400);
-    }
+  useEffect(
+    () => {
+      setCantidad(() => calcularCantidad());
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cart]);
+    [cart]
+  );
 
   return (
     <NavLink to="/carrito" activeClassName="activeLink">
       <FontAwesomeIcon icon={faShoppingCart} />
-      <span> {cantidad} </span>
+      <span> {cantidad > 0 && cantidad} </span>
     </NavLink>
   );
 };

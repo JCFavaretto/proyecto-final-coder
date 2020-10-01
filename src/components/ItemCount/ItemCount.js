@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useProduct } from "../../hooks/useProduct";
 
 import Carrito from "../../context/cartContext";
 import "./ItemCount.css";
+import { useSingleFirestore } from "../../hooks/useSingleFirestore";
 
 export default function ItemCount({ initial, max, min, onAdd }) {
   const [count, setCount] = useState(initial);
 
-  const [cart, setCart, addToCart] = useContext(Carrito); //eslint-disable-line
+  const [{ addToCart }] = useContext(Carrito);
   const history = useHistory();
 
-  const { producto } = useProduct();
-  const { id, title, secure_thumbnail, price } = producto;
+  const { producto } = useSingleFirestore();
+  const { id, title, thumbnail, price } = producto;
 
   const cartItem = {
     count,
     id,
     title,
-    secure_thumbnail,
+    thumbnail,
     price,
   };
 
@@ -50,7 +50,7 @@ export default function ItemCount({ initial, max, min, onAdd }) {
     addToCart(cartItem);
     setTimeout(() => {
       if (count > 0) history.push("/productos");
-    }, 500);
+    }, 300);
   };
 
   return (

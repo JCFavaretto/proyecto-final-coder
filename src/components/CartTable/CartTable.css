@@ -3,8 +3,29 @@
     color: var(--color-fuente3);
 }
 
+thead th:nth-child(1) {
+    width: 10%;
+}
 
-.body {
+thead th:nth-child(2) {
+    width: 25%;
+}
+
+
+thead th:nth-child(3) {
+    width: 20%;
+}
+
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+thead th:nth-child(5) {
+    width: 30%;
+}
+
+.body,
+tfoot {
     font-size: calc(0.8rem + 1vw);
     color: var(--color-fuente3);
     background-color: var(--color-fondo2);

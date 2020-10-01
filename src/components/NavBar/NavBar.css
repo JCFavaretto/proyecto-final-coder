@@ -1,5 +1,4 @@
 .navbar {
-    color: var(--color-fuente);
     border-bottom: 2px solid var(--color-fuente3);
     height: (4.5rem, 1vh);
     background-color: rgba(0, 0, 0, 0.5);
@@ -14,7 +13,7 @@
 
 .logo {
     text-decoration: none;
-    color: var(--color-fuente);
+    color: var(--color-fuente2);
     font-size: calc(3rem + 1vw);
 }
 
@@ -24,11 +23,13 @@
 }
 
 .navbar ul li {
+
     list-style: none;
     margin-right: 1rem;
 }
 
 .navbar ul li a {
+    color: var(--color-fuente2);
     text-decoration: none;
     font-size: calc(2rem + 1vw);
     padding: 0.4rem;
