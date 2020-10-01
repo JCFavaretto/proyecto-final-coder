@@ -1,0 +1,14 @@
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: calc(1rem + 1vw);
+    padding: 1rem;
+}
+
+.categoria {
+    text-decoration: none;
+    background-color: var(--color-fuente3);
+    padding: 1rem;
+    color: var(--color-fuente2)
+}

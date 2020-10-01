@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "components/ItemList/ItemList";
 
 export default function Home({ greeting }) {
   return (

@@ -1,15 +1,14 @@
 import React from "react";
 import "./ItemList.css";
-import Item from "../../components/Item/Item";
-import Loading from "../../components/Loading/Loading";
-import { useFirestore } from "../../hooks/useFirestore";
+import Item from "components/Item/Item";
+import Loading from "components/Loading/Loading";
+import { useFirestore } from "hooks/useFirestore";
 
 export default function ItemList() {
   const { loading, productos } = useFirestore();
 
   return (
-    <div className="home contenedor">
-      <h3 className="titulo">Lista de Productos</h3>
+    <div className="contenedor">
       {loading ? (
         <Loading />
       ) : (

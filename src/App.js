@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import { NavBar } from "./components/NavBar/NavBar.js";
-import Home from "./pages/Home/Home.js";
-import Cart from "./pages/Cart/Cart.js";
-import ItemList from "./pages/ItemList/ItemList";
-import ItemDetailContainer from "./pages/ItemDetailContainer";
-import { CartProvider } from "./context/cartContext";
+import { NavBar } from "components/NavBar/NavBar.js";
+import Home from "pages/Home/Home.js";
+import Cart from "pages/Cart/Cart.js";
+import ItemDetailContainer from "pages/ItemDetailContainer";
+import { CartProvider } from "context/cartContext";
+import Products from "pages/Products/Products";
+import Category from "pages/Category/Category";
 
 export default function App() {
   let nombre = "Juan";
@@ -16,11 +17,14 @@ export default function App() {
         <BrowserRouter>
           <NavBar />
           <Switch>
+            <Route path="/products/categories/:categoryID">
+              <Category />
+            </Route>
             <Route path="/productos/:id">
               <ItemDetailContainer />
             </Route>
             <Route exact path="/productos">
-              <ItemList max={12} />
+              <Products />
             </Route>
             <Route path="/carrito">
               <Cart />
