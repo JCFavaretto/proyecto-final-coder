@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { getFirestore } from "../firebase";
 
-export function useFirestore() {
+export function useFirestore(max) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
-    const itemCollection = db.collection("items");
+    const itemCollection = db.collection("items").limit(max);
     itemCollection
       .get()
       .then((querySnapshot) => {
@@ -27,7 +27,7 @@ export function useFirestore() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, []); //eslint-disable-line
 
   return { loading, productos };
 }

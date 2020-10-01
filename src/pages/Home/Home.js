@@ -14,7 +14,8 @@ export default function Home({ greeting }) {
           excepturi reiciendis adipisci vel?
         </p>
       </div>
-      <ItemList className="lista-home" max={8} />
+      <h2 className="titulo2">Algunos de Nuestros Productos</h2>
+      <ItemList className="lista-home" max={4} />
     </div>
   );
 }

@@ -11,7 +11,7 @@
 }
 
 .img-lista {
-    max-height: 250px;
+    height: 250px;
     width: 100%;
     background-color: rgb(0, 0, 0, 0.6);
     margin-bottom: 0.1rem;

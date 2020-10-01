@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../firebase";
 
-export function useCategoryList() {
+export function useCategoryList(max) {
   const { categoryID } = useParams();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,8 @@ export function useCategoryList() {
     const db = getFirestore();
     const itemCollection = db
       .collection("items")
-      .where("categoryID", "==", `${categoryID}`);
+      .where("categoryID", "==", `${categoryID}`)
+      .limit(max);
     itemCollection
       .get()
       .then((querySnapshot) => {

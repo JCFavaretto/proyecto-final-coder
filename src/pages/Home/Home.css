@@ -18,6 +18,12 @@
     border-bottom: 2px solid var(--color-fuente3)
 }
 
+.titulo2 {
+    font-size: calc(2rem + 1vw);
+    color: var(--color-fuente3);
+    margin: 0;
+    border-bottom: 2px solid var(--color-fuente3)
+}
 
 .txtHome {
     color: var(--color-fuente2);

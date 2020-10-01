@@ -4,8 +4,8 @@ import Item from "components/Item/Item";
 import Loading from "components/Loading/Loading";
 import { useCategoryList } from "hooks/useCategoryList";
 
-export default function ItemCategoryList() {
-  const { loading, productos } = useCategoryList();
+export default function ItemCategoryList({ max = 12 }) {
+  const { loading, productos } = useCategoryList(max);
 
   return (
     <div className="contenedor">

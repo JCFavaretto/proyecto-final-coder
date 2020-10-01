@@ -4,8 +4,8 @@ import Item from "components/Item/Item";
 import Loading from "components/Loading/Loading";
 import { useFirestore } from "hooks/useFirestore";
 
-export default function ItemList() {
-  const { loading, productos } = useFirestore();
+export default function ItemList({ max = 12 }) {
+  const { loading, productos } = useFirestore(max);
 
   return (
     <div className="contenedor">
