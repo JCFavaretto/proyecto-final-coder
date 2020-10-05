@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore } from "../firebase";
+import { db } from "../firebase";
 
 export function useCategoryList(max) {
   const { categoryID } = useParams();
@@ -11,7 +11,6 @@ export function useCategoryList(max) {
 
   useEffect(() => {
     setLoading(true);
-    const db = getFirestore();
     const itemCollection = db
       .collection("items")
       .where("categoryID", "==", `${categoryID}`)

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getFirestore } from "../firebase";
+import { db } from "../firebase";
 
 export function useFirestore(max) {
   const [productos, setProductos] = useState([]);
@@ -7,7 +7,6 @@ export function useFirestore(max) {
 
   useEffect(() => {
     setLoading(true);
-    const db = getFirestore();
     const itemCollection = db.collection("items").limit(max);
     itemCollection
       .get()

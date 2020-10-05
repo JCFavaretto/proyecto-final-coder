@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "../firebase/index";
+import firebase from "firebase/app";
 
 const Carrito = React.createContext({});
 
@@ -64,10 +66,47 @@ export const CartProvider = ({ children }) => {
     return count;
   };
 
+  function updateStock(items) {
+    const itemsToUpdate = db.collection("items").where(
+      firebase.firestore.FieldPath.documentId(),
+      "in",
+      items.map((i) => i.id)
+    );
+
+    const batch = db.batch();
+
+    itemsToUpdate
+      .get()
+      .then((query) => {
+        console.log(query.docs);
+        query.docs.forEach((doc, ind) => {
+          if (doc.data().stock >= items[ind].count) {
+            batch.update(doc.ref, {
+              stock: doc.data().stock - items[ind].count,
+            });
+          }
+        });
+      })
+      .catch((err) => {
+        console.log("Error en updateStock: " + err);
+      })
+      .finally(() => {
+        batch.commit();
+      });
+  }
+
   return (
     <Carrito.Provider
       value={[
-        { cart, setCart, addToCart, calcularCantidad, totalGasto, returnCount },
+        {
+          cart,
+          setCart,
+          addToCart,
+          calcularCantidad,
+          totalGasto,
+          returnCount,
+          updateStock,
+        },
       ]}
     >
       {children}

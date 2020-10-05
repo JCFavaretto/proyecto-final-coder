@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore } from "../firebase";
+import { db } from "../firebase";
 
 export function useSingleFirestore() {
   const { id } = useParams();
@@ -9,7 +9,6 @@ export function useSingleFirestore() {
 
   useEffect(() => {
     setLoading(true);
-    const db = getFirestore();
     const itemCollection = db.collection("items");
     const item = itemCollection.doc(id);
     item

@@ -19,3 +19,8 @@
     padding: 0.8rem;
     margin-bottom: 2rem;
 }
+
+.compra-exitosa {
+    color: var(--color-fuente3);
+    font-size: calc(2rem + 1vw);
+}

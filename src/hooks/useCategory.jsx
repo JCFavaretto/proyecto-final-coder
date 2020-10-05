@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getFirestore } from "../firebase";
+import { db } from "../firebase";
 
 export function useCategory() {
   const [categories, setCategories] = useState([]);
@@ -7,7 +7,6 @@ export function useCategory() {
 
   useEffect(() => {
     setLoading(true);
-    const db = getFirestore();
     const itemCollection = db.collection("categorias").orderBy("name", "asc");
     itemCollection
       .get()
