@@ -3,11 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ItemNav } from "./ItemNav.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCross,
-  faEllipsisH,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisH, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
 import CartIcon from "./CartIcon/CartIcon.jsx";
 import NavMenu from "components/NavMenu/NavMenu.jsx";
@@ -22,11 +18,20 @@ export function NavBar() {
   return (
     <div className="navbar">
       <div className="cont-nav contenedor">
-        <h1>
-          <NavLink to="/" className="logo">
-            La Tienda
-          </NavLink>
-        </h1>
+        <div className="pegados">
+          <p className="enlace burguer">
+            <FontAwesomeIcon
+              className="ellipsis"
+              icon={sideBar ? faTimes : faEllipsisH}
+              onClick={() => showSideBar()}
+            />
+          </p>
+          <h1>
+            <NavLink to="/" className="logo">
+              La Tienda
+            </NavLink>
+          </h1>
+        </div>
         <ul className="navbar-ul">
           <li className=" hide enlace ">
             <ItemNav
@@ -44,13 +49,6 @@ export function NavBar() {
           </li>
           <li className="enlace">
             <CartIcon />
-          </li>
-          <li className="enlace burguer">
-            <FontAwesomeIcon
-              className="ellipsis"
-              icon={sideBar ? faTimes : faEllipsisH}
-              onClick={() => showSideBar()}
-            />
           </li>
         </ul>
         <NavMenu

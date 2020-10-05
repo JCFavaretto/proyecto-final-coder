@@ -11,6 +11,12 @@
     align-items: center;
 }
 
+.pegados {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .logo {
     text-decoration: none;
     color: var(--color-fuente2);
