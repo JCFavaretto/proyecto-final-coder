@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
 import Carrito from "../../context/cartContext";
 import "./ItemCount.css";
 import { useSingleFirestore } from "../../hooks/useSingleFirestore";
 
-export default function ItemCount({ initial, max, min, onAdd }) {
+export default function ItemCount({ initial, max, onAdd }) {
   const [count, setCount] = useState(initial);
 
   const [{ addToCart }] = useContext(Carrito);
@@ -28,7 +27,7 @@ export default function ItemCount({ initial, max, min, onAdd }) {
   }, [count]);
 
   function restar() {
-    if (count > min) {
+    if (count > 0) {
       setCount((count) => count - 1);
     } else {
       console.log("No se puede bajar mas");
@@ -47,7 +46,7 @@ export default function ItemCount({ initial, max, min, onAdd }) {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    addToCart(cartItem);
+    addToCart({ cartItem });
     setTimeout(() => {
       if (count > 0) history.push("/productos");
     }, 300);
@@ -66,8 +65,9 @@ export default function ItemCount({ initial, max, min, onAdd }) {
       </div>
 
       <button type="submit" className="btn btn-add">
-        AGREGAR<span className="cantidad-btn"> {count ? count : ""} </span>AL
-        CARRITO
+        AGREGAR
+        <span className="cantidad-btn"> {count > 0 ? count : ""} </span>
+        AL CARRITO
       </button>
     </form>
   );

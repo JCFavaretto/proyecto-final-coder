@@ -17,7 +17,7 @@ export default function App() {
         <BrowserRouter>
           <NavBar />
           <Switch>
-            <Route path="/products/categories/:categoryID">
+            <Route path="/productos/categories/:categoryID">
               <Category />
             </Route>
             <Route path="/productos/:id">

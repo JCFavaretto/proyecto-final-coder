@@ -13,7 +13,7 @@ const Categories = () => {
           const categoryID = aux.id;
           return (
             <NavLink
-              to={`/products/categories/${categoryID}`}
+              to={`/productos/categories/${categoryID}`}
               activeClassName="activeLink"
               className="categoria"
               key={aux.id}

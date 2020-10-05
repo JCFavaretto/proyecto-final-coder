@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export function ItemNav(props) {
+export function ItemNav({ href, activeClass = "none", texto }) {
   return (
-    <NavLink to={props.href} activeClassName={props.activeClass}>
-      {props.texto}
+    <NavLink to={href} activeClassName={activeClass}>
+      {texto}
     </NavLink>
   );
 }

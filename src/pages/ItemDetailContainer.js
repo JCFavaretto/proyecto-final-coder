@@ -12,6 +12,7 @@ const ItemDetailContainer = () => {
   } else {
     return (
       <ItemDetail
+        id={producto.id}
         title={producto.title}
         imagen={producto.picture}
         price={producto.price}
