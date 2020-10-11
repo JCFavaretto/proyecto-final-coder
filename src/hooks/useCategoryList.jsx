@@ -7,8 +7,6 @@ export function useCategoryList(max) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(categoryID);
-
   useEffect(() => {
     setLoading(true);
     const itemCollection = db
@@ -23,7 +21,6 @@ export function useCategoryList(max) {
         }
         setProductos(
           querySnapshot.docs.map((doc) => {
-            console.log(doc);
             return { id: doc.id, ...doc.data() };
           })
         );

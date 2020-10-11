@@ -22,14 +22,15 @@ export const CartProvider = ({ children }) => {
           return item;
         });
 
-        return newCart;
+        const filterCart = newCart.filter((item) => item.count > 0);
+        return filterCart;
       });
     }
     if (!existe) {
       setCart(() => [...cart, cartItem]);
     }
   }
-
+  //Calcula la cantidad total de todos los items en el carrito
   const calcularCantidad = () => {
     let count = 0;
     if (Array.isArray(cart)) {
@@ -51,7 +52,7 @@ export const CartProvider = ({ children }) => {
     }
     return count;
   };
-
+  // Retorna la cantidad de items agregados de un elemento particular
   const returnCount = ({ id }) => {
     let count = 0;
     if (cart.length > 0) {

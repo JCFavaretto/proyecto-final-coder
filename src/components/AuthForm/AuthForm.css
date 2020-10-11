@@ -1,0 +1,28 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.login input {
+    font-size: calc(1.2rem + 1vw);
+    margin-bottom: 1rem;
+    -moz-appearance: textfield;
+    width: 80%;
+    color: var(--color-fuente3);
+    background-color: var(--color-fuente2);
+    text-align: center;
+    max-width: 40rem;
+}
+
+
+.login input::-webkit-inner-spin-button,
+.login input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn-log {
+    font-size: calc(2.5rem + 1vw);
+}

@@ -17,7 +17,29 @@
 
 .nav-menu-items {
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
-    justify-content: flex-start;
+    padding: 0;
+}
+
+.navmenu-link {
+    list-style: none;
+    font-size: calc(2.3rem + 1vw);
+}
+
+.navmenu-link a {
+    color: var(--color-fuente2);
+    text-decoration: none;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+
+    align-items: right;
+    margin: 1rem 0;
+}
+
+.sub-enlace {
+    font-size: calc(1.6rem + 1vw);
 }

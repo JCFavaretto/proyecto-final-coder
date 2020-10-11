@@ -1,7 +1,7 @@
 .categories {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     font-size: calc(1rem + 1vw);
     padding: 1rem;
 }
@@ -10,5 +10,6 @@
     text-decoration: none;
     background-color: var(--color-fuente3);
     padding: 1rem;
-    color: var(--color-fuente2)
+    color: var(--color-fuente2);
+    margin-right: 1rem;
 }

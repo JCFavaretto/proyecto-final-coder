@@ -8,6 +8,7 @@ import ItemDetailContainer from "pages/ItemDetailContainer";
 import { CartProvider } from "context/cartContext";
 import Products from "pages/Products/Products";
 import Category from "pages/Category/Category";
+import AuthForm from "components/AuthForm/AuthForm";
 
 export default function App() {
   let nombre = "Juan";
@@ -30,8 +31,7 @@ export default function App() {
               <Cart />
             </Route>
             <Route path="/ingresar">
-              <h1 className="inner-test">Iniciar sesión</h1> <br></br>
-              <p className="inner-test">Registrar nuevo usuario</p>
+              <AuthForm />
             </Route>
             <Route exact path="/">
               <Home greeting={nombre} />
