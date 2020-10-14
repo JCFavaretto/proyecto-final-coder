@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "components/AuthForm/AuthForm.css";
 import { fb } from "fire/index.js";
+import { useHistory } from "react-router-dom";
 
 const AuthForm = ({ reg }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,22 +17,48 @@ const AuthForm = ({ reg }) => {
         fb.auth()
           .createUserWithEmailAndPassword(mail, password)
           .then(({ user }) => {
-            console.log(`Nuevo usuario: ${user}`);
+            console.log(user);
+            setSuccess("Usuario Creado");
+            setTimeout(() => {}, 600);
+          })
+          .then(() => {
+            setTimeout(() => {
+              setSuccess("");
+              history.push("/");
+            }, 600);
           })
           .catch((err) => {
-            console.log(err);
+            setError(() => err.message);
           });
       } else {
         fb.auth()
           .signInWithEmailAndPassword(mail, password)
           .then(({ user }) => {
-            console.log(`Inicio sesión: ${user}`);
+            console.log(user);
+            setSuccess("Iniciando Sesión");
+          })
+          .then(() => {
+            setTimeout(() => {
+              setSuccess("");
+
+              history.push("/");
+            }, 600);
           })
           .catch((err) => {
-            console.log(err);
+            setError(() => err.message);
           });
       }
     }
+  };
+
+  const inputMail = (e) => {
+    setMail(e.target.value);
+    setError(() => "");
+  };
+
+  const inputPass = (e) => {
+    setPassword(e.target.value);
+    setError(() => "");
   };
 
   const confirmPass = (e) => {
@@ -41,18 +70,18 @@ const AuthForm = ({ reg }) => {
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
+    <form className="login" onSubmit={(e) => handleSubmit(e)}>
       <input
         type="email"
         placeholder="Ingresa tu Email"
         value={mail}
-        onChange={(e) => setMail(e.target.value)}
+        onChange={(e) => inputMail(e)}
         required
       />
       <input
         type="password"
         placeholder="Ingresa tu contraseña"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => inputPass(e)}
         required
       />
       {reg && (
@@ -64,6 +93,7 @@ const AuthForm = ({ reg }) => {
         />
       )}
       <p className="error-msg">{error}</p>
+      <p className="success-msg">{success} </p>
       <button className="btn btn-log">{reg ? "Registrar" : "Ingresar"} </button>
     </form>
   );

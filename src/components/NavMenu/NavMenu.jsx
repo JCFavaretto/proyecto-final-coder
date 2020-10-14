@@ -4,9 +4,13 @@ import "components/NavMenu/NavMenu.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useCategory } from "hooks/useCategory";
+import { fb } from "fire";
+import { useContext } from "react";
+import AuthContext from "context/AuthContext";
 
 const NavMenu = ({ className, showSideBar }) => {
   const { categories } = useCategory();
+  const { user } = useContext(AuthContext);
 
   return (
     <nav className={className}>
@@ -39,12 +43,22 @@ const NavMenu = ({ className, showSideBar }) => {
               })}
           </ul>
         </li>
-        <li className="navmenu-link">
-          <ItemNav href="/ingresar" texto="Ingresar" />
-        </li>
-        <li className="navmenu-link">
-          <ItemNav href="/registrarse" texto="Registrarse" />
-        </li>
+        {user ? (
+          <li className="navmenu-link">
+            <a
+              href="/"
+              onClick={() => {
+                fb.auth().signOut();
+              }}
+            >
+              Salir
+            </a>
+          </li>
+        ) : (
+          <li className="navmenu-link">
+            <ItemNav href="/ingresar" texto="Ingresar" />
+          </li>
+        )}
       </ul>
     </nav>
   );

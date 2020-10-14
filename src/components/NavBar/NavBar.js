@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ItemNav } from "./ItemNav.js";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
 import CartIcon from "./CartIcon/CartIcon.jsx";
 import NavMenu from "components/NavMenu/NavMenu.jsx";
+import { fb } from "fire/index.js";
+import AuthContext from "context/AuthContext";
 
 export function NavBar() {
   const [sideBar, setSideBar] = useState(false);
+  const { user } = useContext(AuthContext);
 
   const showSideBar = () => {
     setSideBar(() => !sideBar);
@@ -40,14 +42,26 @@ export function NavBar() {
               texto="Productos"
             />
           </li>
-          <li className="hide enlace ">
-            <ItemNav
-              href="/ingresar"
-              activeClass="activeLink"
-              texto="Ingresar"
-            />
-          </li>
-
+          {user ? (
+            <li className="hide enlace ">
+              <a
+                href="/"
+                onClick={() => {
+                  fb.auth().signOut();
+                }}
+              >
+                Salir
+              </a>
+            </li>
+          ) : (
+            <li className="hide enlace ">
+              <ItemNav
+                href="/ingresar"
+                activeClass="activeLink"
+                texto="Ingresar"
+              />
+            </li>
+          )}
           <li className="enlace">
             <CartIcon />
           </li>

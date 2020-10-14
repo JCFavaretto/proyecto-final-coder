@@ -40,3 +40,9 @@
     font-size: calc(1rem + 1vw);
     margin: 0 auto 1rem auto;
 }
+
+.success-msg {
+    color: #22BB33;
+    font-size: calc(1rem + 1vw);
+    margin: 0 auto 1rem auto;
+}

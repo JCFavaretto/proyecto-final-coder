@@ -8,7 +8,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fb.auth().onAuthStateChanged(setUser);
-  }, []);
+    if (user) {
+      console.log(user);
+    }
+  }, []); //eslint-disable-line
 
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>

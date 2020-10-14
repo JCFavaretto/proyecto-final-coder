@@ -16,7 +16,6 @@ const Autorization = () => {
         {registrarse ? "Registro de usuario nuevo" : "Inicio de Sesión"}
       </h3>
       <AuthForm reg={registrarse} />
-
       <p className="opcion-ingreso" onClick={handleClick}>
         {registrarse
           ? "Si ya tiene una cuenta, click aqui para iniciar sesion"
