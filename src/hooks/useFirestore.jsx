@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "../firebase";
+import { db } from "../fire";
 
 export function useFirestore(max) {
   const [productos, setProductos] = useState([]);

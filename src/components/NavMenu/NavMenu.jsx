@@ -42,6 +42,9 @@ const NavMenu = ({ className, showSideBar }) => {
         <li className="navmenu-link">
           <ItemNav href="/ingresar" texto="Ingresar" />
         </li>
+        <li className="navmenu-link">
+          <ItemNav href="/registrarse" texto="Registrarse" />
+        </li>
       </ul>
     </nav>
   );

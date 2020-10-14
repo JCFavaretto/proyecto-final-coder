@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "components/Loading/Loading";
-import * as firebase from "firebase/app";
-import { db } from "../../firebase/index";
+import { fb, db } from "fire/index";
 
 const Comprar = ({ cart, setCart, total, updateStock }) => {
   const [id, setId] = useState("");
@@ -17,7 +16,7 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
       email: "ejemplo@gmail.com",
     },
     items: { cart },
-    date: firebase.firestore.Timestamp.fromDate(new Date()),
+    date: fb.firestore.Timestamp.fromDate(new Date()),
     total: { total },
   };
 

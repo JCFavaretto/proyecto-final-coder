@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { db } from "../firebase/index";
-import firebase from "firebase/app";
+import { fb, db } from "../fire/index";
 
 const Carrito = React.createContext({});
 
@@ -69,7 +68,7 @@ export const CartProvider = ({ children }) => {
 
   function updateStock(items) {
     const itemsToUpdate = db.collection("items").where(
-      firebase.firestore.FieldPath.documentId(),
+      fb.firestore.FieldPath.documentId(),
       "in",
       items.map((i) => i.id)
     );

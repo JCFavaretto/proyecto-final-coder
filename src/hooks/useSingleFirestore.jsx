@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { db } from "../firebase";
+import { db } from "../fire";
 
 export function useSingleFirestore() {
   const { id } = useParams();

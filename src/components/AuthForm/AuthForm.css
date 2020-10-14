@@ -8,12 +8,20 @@
 .login input {
     font-size: calc(1.2rem + 1vw);
     margin-bottom: 1rem;
-    -moz-appearance: textfield;
     width: 80%;
+    padding: 1rem;
     color: var(--color-fuente3);
     background-color: var(--color-fuente2);
     text-align: center;
     max-width: 40rem;
+    border: none;
+
+    border: 1px solid var(--color-fondo)
+}
+
+.login input:focus {
+    outline: none;
+    border: 1px solid var(--color-fuente3)
 }
 
 
@@ -25,4 +33,10 @@
 
 .btn-log {
     font-size: calc(2.5rem + 1vw);
+}
+
+.error-msg {
+    color: #ff0033;
+    font-size: calc(1rem + 1vw);
+    margin: 0 auto 1rem auto;
 }

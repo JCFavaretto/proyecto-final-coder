@@ -1,0 +1,9 @@
+.opcion-ingreso {
+    font-size: calc(0.6rem + 1vw);
+    margin-top: 6rem;
+}
+
+.opcion-ingreso:hover {
+    color: var(--color-fuente3);
+    cursor: pointer;
+}

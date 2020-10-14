@@ -47,12 +47,13 @@ export function NavBar() {
               texto="Ingresar"
             />
           </li>
+
           <li className="enlace">
             <CartIcon />
           </li>
         </ul>
         <NavMenu
-          className={sideBar ? "nav-menu active" : "nav-menu"}
+          className={sideBar ? "nav-menu active" : "nav-menu "}
           showSideBar={() => showSideBar()}
         />
       </div>
