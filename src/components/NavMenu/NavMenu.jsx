@@ -44,15 +44,13 @@ const NavMenu = ({ className, showSideBar }) => {
           </ul>
         </li>
         {user ? (
-          <li className="navmenu-link">
-            <a
-              href="/"
-              onClick={() => {
-                fb.auth().signOut();
-              }}
-            >
-              Salir
-            </a>
+          <li
+            className="navmenu-link"
+            onClick={() => {
+              fb.auth().signOut();
+            }}
+          >
+            <ItemNav href="/" texto=" Salir" />
           </li>
         ) : (
           <li className="navmenu-link">

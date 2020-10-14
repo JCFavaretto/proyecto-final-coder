@@ -43,15 +43,13 @@ export function NavBar() {
             />
           </li>
           {user ? (
-            <li className="hide enlace ">
-              <a
-                href="/"
-                onClick={() => {
-                  fb.auth().signOut();
-                }}
-              >
-                Salir
-              </a>
+            <li
+              className="hide enlace "
+              onClick={() => {
+                fb.auth().signOut();
+              }}
+            >
+              <ItemNav href="/" texto=" Salir" />
             </li>
           ) : (
             <li className="hide enlace ">
