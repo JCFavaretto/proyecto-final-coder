@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { fb } from "fire/index.js";
+import React from "react";
+import useFirebaseAuthentication from "hooks/useFirebaseAuthentication";
+import { db } from "fire/index";
 
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    console.log(user);
-    fb.auth().onAuthStateChanged(setUser);
-    if (user) {
-      console.log(user);
-    }
-  }, []); //eslint-disable-line
-
+  const isUser = useFirebaseAuthentication();
+  const user = [{}];
+  if (isUser) {
+  }
   return (
-    <AuthContext.Provider value={[{ user }]}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={[{ isUser, user }]}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

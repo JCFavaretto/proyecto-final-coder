@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "components/AuthForm/AuthForm.css";
-import { fb } from "fire/index.js";
+import { fb, db } from "fire/index.js";
 import { useHistory } from "react-router-dom";
-import AuthContext from "context/AuthContext";
 
 const AuthForm = ({ reg }) => {
   const [mail, setMail] = useState("");
@@ -12,7 +11,6 @@ const AuthForm = ({ reg }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const history = useHistory();
-  const [{ user }] = useContext(AuthContext);
 
   const handleAuthSubmit = (e) => {
     e.preventDefault();
@@ -20,17 +18,16 @@ const AuthForm = ({ reg }) => {
       if (reg) {
         fb.auth()
           .createUserWithEmailAndPassword(mail, password)
-          .then(() => {
-            console.log(user);
-            user.updateProfile({
-              displayName: { userName },
-              phoneNumber: { phoneNumber },
+          .then((cred) => {
+            db.collection("users").doc(cred.user.uid).set({
+              nombre: userName,
+              phoneNumber: phoneNumber,
+              wishlist: [],
+              orders: [],
             });
           })
-          .then(({ user }) => {
-            console.log(user);
+          .then(() => {
             setSuccess("Usuario Creado");
-            setTimeout(() => {}, 600);
           })
           .then(() => {
             setSuccess("");

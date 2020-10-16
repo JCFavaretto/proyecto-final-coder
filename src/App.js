@@ -13,9 +13,7 @@ import "./App.css";
 
 export default function App() {
   let nombre = "Juan";
-
-  const [{ user }] = useContext(AuthContext);
-  console.log(user);
+  const [{ isUser }] = useContext(AuthContext);
 
   return (
     <div className="App">
@@ -36,7 +34,7 @@ export default function App() {
               <Cart />
             </Route>
             <Route path="/ingresar">
-              {user ? <Redirect to="/" /> : <Authorization />}
+              {isUser ? <Redirect to="/" /> : <Authorization />}
             </Route>
             <Route path="/home">
               <Home greeting={nombre} />

@@ -11,7 +11,7 @@ import AuthContext from "context/AuthContext";
 
 export function NavBar() {
   const [sideBar, setSideBar] = useState(false);
-  const [{ user }] = useContext(AuthContext);
+  const [{ isUser }] = useContext(AuthContext);
 
   const showSideBar = () => {
     setSideBar(() => !sideBar);
@@ -42,7 +42,7 @@ export function NavBar() {
               texto="Productos"
             />
           </li>
-          {user ? (
+          {isUser ? (
             <li
               className="hide enlace "
               onClick={() => {

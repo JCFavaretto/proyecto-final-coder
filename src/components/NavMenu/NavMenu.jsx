@@ -10,7 +10,7 @@ import AuthContext from "context/AuthContext";
 
 const NavMenu = ({ className, showSideBar }) => {
   const { categories } = useCategory();
-  const [{ user }] = useContext(AuthContext);
+  const [{ isUser }] = useContext(AuthContext);
 
   return (
     <nav className={className}>
@@ -43,7 +43,7 @@ const NavMenu = ({ className, showSideBar }) => {
               })}
           </ul>
         </li>
-        {user ? (
+        {isUser ? (
           <li
             className="navmenu-link"
             onClick={() => {
