@@ -6,6 +6,7 @@ export function useSingleFirestore() {
   const { id } = useParams();
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -15,12 +16,13 @@ export function useSingleFirestore() {
       .get()
       .then((doc) => {
         if (!doc.exists) {
-          console.log("El producto no existe! ");
+          setError("El producto no existe! ");
           return;
         }
         setProducto({ id, ...doc.data() });
       })
       .catch((error) => {
+        setError(error);
         console.log("Hubo un error buscando el producto : ", error);
       })
       .finally(() => {
@@ -28,5 +30,5 @@ export function useSingleFirestore() {
       });
   }, []); //eslint-disable-line
 
-  return { loading, producto };
+  return { loading, producto, error };
 }

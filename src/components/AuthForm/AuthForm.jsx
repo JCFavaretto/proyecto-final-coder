@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "components/AuthForm/AuthForm.css";
 import { fb } from "fire/index.js";
 import { useHistory } from "react-router-dom";
+import AuthContext from "context/AuthContext";
 
 const AuthForm = ({ reg }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const history = useHistory();
+  const [{ user }] = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleAuthSubmit = (e) => {
     e.preventDefault();
     if (!error) {
       if (reg) {
         fb.auth()
           .createUserWithEmailAndPassword(mail, password)
+          .then(() => {
+            console.log(user);
+            user.updateProfile({
+              displayName: { userName },
+              phoneNumber: { phoneNumber },
+            });
+          })
           .then(({ user }) => {
             console.log(user);
             setSuccess("Usuario Creado");
             setTimeout(() => {}, 600);
           })
           .then(() => {
-            setTimeout(() => {
-              setSuccess("");
-              history.push("/");
-            }, 600);
+            setSuccess("");
+            history.push("/");
           })
           .catch((err) => {
             setError(() => err.message);
@@ -38,11 +47,8 @@ const AuthForm = ({ reg }) => {
             setSuccess("Iniciando Sesión");
           })
           .then(() => {
-            setTimeout(() => {
-              setSuccess("");
-
-              history.push("/");
-            }, 600);
+            setSuccess("");
+            history.push("/");
           })
           .catch((err) => {
             setError(() => err.message);
@@ -70,17 +76,35 @@ const AuthForm = ({ reg }) => {
   };
 
   return (
-    <form className="login" onSubmit={(e) => handleSubmit(e)}>
+    <form className="login" onSubmit={(e) => handleAuthSubmit(e)}>
+      {reg && (
+        <>
+          <input
+            type="text"
+            placeholder="Nombre y Apellido"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Numero de Telefono"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+          />
+        </>
+      )}
       <input
         type="email"
-        placeholder="Ingresa tu Email"
+        placeholder="Email"
         value={mail}
         onChange={(e) => inputMail(e)}
         required
       />
       <input
         type="password"
-        placeholder="Ingresa tu contraseña"
+        placeholder="Contraseña"
         onChange={(e) => inputPass(e)}
         required
       />

@@ -38,3 +38,7 @@ body {
 .App {
     text-align: center;
 }
+
+.error-prod {
+    margin: 6rem auto;
+}

@@ -11,7 +11,7 @@ import AuthContext from "context/AuthContext";
 
 export function NavBar() {
   const [sideBar, setSideBar] = useState(false);
-  const { user } = useContext(AuthContext);
+  const [{ user }] = useContext(AuthContext);
 
   const showSideBar = () => {
     setSideBar(() => !sideBar);

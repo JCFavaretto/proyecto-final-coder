@@ -10,7 +10,7 @@ import AuthContext from "context/AuthContext";
 
 const NavMenu = ({ className, showSideBar }) => {
   const { categories } = useCategory();
-  const { user } = useContext(AuthContext);
+  const [{ user }] = useContext(AuthContext);
 
   return (
     <nav className={className}>

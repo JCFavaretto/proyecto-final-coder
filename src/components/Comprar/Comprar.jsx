@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "components/Loading/Loading";
-import { fb, db } from "fire/index";
+import { db } from "fire/index";
+import * as fb from "firebase/app";
 
 const Comprar = ({ cart, setCart, total, updateStock }) => {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
-
   const history = useHistory();
 
   const newOrder = {
