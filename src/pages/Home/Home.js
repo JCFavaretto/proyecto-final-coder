@@ -6,7 +6,7 @@ export default function Home({ greeting }) {
   return (
     <div className="home contenedor">
       <div className="saludo">
-        <h1 className="titulo">Bienvenido, {greeting}!</h1>
+        <h1 className="titulo">Bienvenido {greeting}!</h1>
         <p className="txtHome">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
           placeat mollitia eligendi voluptatum magni, quia labore ipsum animi

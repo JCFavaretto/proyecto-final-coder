@@ -12,7 +12,6 @@ import Authorization from "pages/Authorization/Authorization";
 import "./App.css";
 
 export default function App() {
-  let nombre = "Juan";
   const [{ isUser }] = useContext(AuthContext);
 
   return (
@@ -37,7 +36,7 @@ export default function App() {
               {isUser ? <Redirect to="/" /> : <Authorization />}
             </Route>
             <Route path="/home">
-              <Home greeting={nombre} />
+              <Home greeting={isUser ? isUser.nombre : "a la tecnotienda"} />
             </Route>
             <Route path="/">
               <Redirect to="/home" />

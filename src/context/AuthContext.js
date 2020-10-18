@@ -1,16 +1,13 @@
 import React from "react";
 import useFirebaseAuthentication from "hooks/useFirebaseAuthentication";
-import { db } from "fire/index";
 
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const isUser = useFirebaseAuthentication();
-  const user = [{}];
-  if (isUser) {
-  }
+  const { isUser, loading, error } = useFirebaseAuthentication();
+
   return (
-    <AuthContext.Provider value={[{ isUser, user }]}>
+    <AuthContext.Provider value={[{ isUser, loading, error }]}>
       {children}
     </AuthContext.Provider>
   );

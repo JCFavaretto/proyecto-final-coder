@@ -1,19 +1,44 @@
 import { useState, useEffect } from "react";
-import { fb } from "fire/index";
+import { fb, db } from "fire/index";
 
-const useFirebaseAuthentication = (firebase) => {
-  const [user, setUser] = useState(null);
+const useFirebaseAuthentication = () => {
+  const [isUser, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const unlisten = fb.auth().onAuthStateChanged((authUser) => {
-      authUser ? setUser(authUser) : setUser(null);
+      if (authUser) {
+        const { uid, email } = authUser;
+        setLoading(true);
+        const userCollection = db.collection("users");
+        const user = userCollection.doc(uid);
+        user
+          .get()
+          .then((doc) => {
+            if (!doc.exists) {
+              setError("El producto no existe! ");
+              return;
+            }
+            setUser({ uid, email, ...doc.data() });
+          })
+          .catch((error) => {
+            setError(error);
+            console.log("Hubo un error buscando el producto : ", error);
+          })
+          .finally(() => {
+            setLoading(false);
+          }); //eslint-disable-line
+      } else {
+        setUser(null);
+      }
     });
     return () => {
       unlisten();
     };
-  });
+  }, []);
 
-  return user;
+  return { isUser, loading, error };
 };
 
 export default useFirebaseAuthentication;

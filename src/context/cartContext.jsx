@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { fb, db } from "../fire/index";
+import { db } from "../fire/index";
+import * as firebase from "firebase/app";
 
 const Carrito = React.createContext({});
 
@@ -68,7 +69,7 @@ export const CartProvider = ({ children }) => {
 
   function updateStock(items) {
     const itemsToUpdate = db.collection("items").where(
-      fb.firestore.FieldPath.documentId(),
+      firebase.firestore.FieldPath.documentId(),
       "in",
       items.map((i) => i.id)
     );
@@ -78,7 +79,6 @@ export const CartProvider = ({ children }) => {
     itemsToUpdate
       .get()
       .then((query) => {
-        console.log(query.docs);
         query.docs.forEach((doc, ind) => {
           if (doc.data().stock >= items[ind].count) {
             batch.update(doc.ref, {

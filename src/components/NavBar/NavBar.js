@@ -30,7 +30,7 @@ export function NavBar() {
           </p>
           <h1>
             <NavLink to="/" className="logo">
-              La Tienda
+              TecnoTienda
             </NavLink>
           </h1>
         </div>

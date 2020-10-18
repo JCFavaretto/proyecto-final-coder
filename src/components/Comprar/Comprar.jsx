@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "components/Loading/Loading";
 import { db } from "fire/index";
 import * as fb from "firebase/app";
+import AuthContext from "context/AuthContext";
 
 const Comprar = ({ cart, setCart, total, updateStock }) => {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-
-  const newOrder = {
-    buyer: {
-      name: "ejemplo",
-      phone: "155123123",
-      email: "ejemplo@gmail.com",
-    },
-    items: { cart },
-    date: fb.firestore.Timestamp.fromDate(new Date()),
-    total: { total },
-  };
+  const [{ isUser }] = useContext(AuthContext);
 
   const enviarOrden = () => {
+    const newOrder = {
+      buyer: {
+        name: isUser.nombre,
+        phone: isUser.phoneNumber,
+        email: isUser.email,
+      },
+      items: { cart },
+      date: fb.firestore.Timestamp.fromDate(new Date()),
+      total: { total },
+    };
+
     setLoading(true);
     db.collection("orders")
       .add(newOrder)
       .then(({ id }) => {
         setId(id);
         console.log("Compra Exitosa! Su ID de compra es: " + id);
+        return id;
+      })
+      .then((id) => {
+        db.collection("users")
+          .doc(isUser.uid)
+          .update({
+            orders: fb.firestore.FieldValue.arrayUnion(id),
+          });
       })
       .catch((err) => {
         console.log("error: " + err);
@@ -45,7 +55,7 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
     <>
       {loading ? (
         <Loading />
-      ) : (
+      ) : isUser ? (
         <div>
           <Link to="#" className="btn btn-compra" onClick={() => enviarOrden()}>
             COMPRAR
@@ -54,6 +64,15 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
             {id !== "" ? `Compra Exitosa! Su ID de compra es: "${id}" ` : id}{" "}
           </p>
         </div>
+      ) : (
+        <>
+          <p className="error-msg">
+            Tiene que iniciar sesion para continuar con la compra
+          </p>
+          <Link to="/ingresar" className="btn-prod">
+            Ingresar
+          </Link>
+        </>
       )}
     </>
   );
