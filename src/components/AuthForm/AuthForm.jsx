@@ -7,6 +7,7 @@ const AuthForm = ({ reg }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -21,6 +22,7 @@ const AuthForm = ({ reg }) => {
           .then((cred) => {
             db.collection("users").doc(cred.user.uid).set({
               nombre: userName,
+              apellido: lastName,
               phoneNumber: phoneNumber,
               wishlist: [],
               orders: [],
@@ -78,11 +80,19 @@ const AuthForm = ({ reg }) => {
         <>
           <input
             type="text"
-            placeholder="Nombre y Apellido"
+            placeholder="Nombre"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             required
           />
+          <input
+            type="text"
+            placeholder="Apellido"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+
           <input
             type="number"
             placeholder="Numero de Telefono"

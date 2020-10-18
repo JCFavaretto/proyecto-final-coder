@@ -10,11 +10,12 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const [{ isUser }] = useContext(AuthContext);
+  const fullName = isUser.nombre + " " + isUser.apellido;
 
   const enviarOrden = () => {
     const newOrder = {
       buyer: {
-        name: isUser.nombre,
+        name: fullName,
         phone: isUser.phoneNumber,
         email: isUser.email,
       },
