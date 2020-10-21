@@ -30,3 +30,23 @@ tfoot {
     color: var(--color-fuente3);
     background-color: var(--color-fondo2);
 }
+
+
+tbody td:nth-child(6) {
+    width: 2%;
+    background-color: var(--color-fondo);
+    text-align: right;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+tbody td:nth-child(6):hover {
+    cursor: pointer;
+}
+
+
+
+table {
+    padding-right: 0;
+    margin-right: 0;
+}

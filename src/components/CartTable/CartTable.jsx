@@ -22,6 +22,7 @@ const CartTable = () => {
           cart.map(({ id, count, title, price, thumbnail }) => (
             <tr key={id}>
               <CartDetail
+                id={id}
                 count={count}
                 title={title}
                 price={price}

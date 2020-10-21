@@ -102,6 +102,11 @@ export const CartProvider = ({ children }) => {
       });
   }
 
+  function removeFromCart(id) {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  }
+
   return (
     <Carrito.Provider
       value={[
@@ -113,6 +118,7 @@ export const CartProvider = ({ children }) => {
           totalGasto,
           returnCount,
           updateStock,
+          removeFromCart,
         },
       ]}
     >

@@ -18,8 +18,10 @@ html {
 }
 
 a {
-    color: var(--color-fuente);
+    color: var(--color-fuente3);
 }
+
+
 
 body {
     background-color: #0d0d0d;
