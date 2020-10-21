@@ -4,9 +4,11 @@ import CartTable from "../../components/CartTable/CartTable";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 import Comprar from "components/Comprar/Comprar";
+import AuthContext from "context/AuthContext";
 
 const Cart = () => {
   const [{ cart, setCart, totalGasto, updateStock }] = useContext(carrito);
+  const [{ isUser }] = useContext(AuthContext);
 
   return (
     <div className="home contenedor cart">
@@ -14,12 +16,23 @@ const Cart = () => {
       {cart.length > 0 ? (
         <div>
           <CartTable />
-          <Comprar
-            cart={cart}
-            setCart={setCart}
-            total={totalGasto()}
-            updateStock={updateStock}
-          />
+          {isUser ? (
+            <Comprar
+              cart={cart}
+              setCart={setCart}
+              total={totalGasto()}
+              updateStock={updateStock}
+            />
+          ) : (
+            <>
+              <p className="error-msg">
+                Tiene que iniciar sesion para continuar con la compra
+              </p>
+              <Link to="/ingresar" className="btn-prod">
+                Ingresar
+              </Link>
+            </>
+          )}{" "}
         </div>
       ) : (
         <React.Fragment>

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import Carrito from "../../../context/cartContext";
+import Carrito from "context/cartContext";
 import "./CartIcon.css";
 
 const CartIcon = () => {

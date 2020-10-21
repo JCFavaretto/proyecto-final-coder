@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { db } from "../fire/index";
 import * as firebase from "firebase/app";
+import { useLocalCart } from "hooks/useLocalCart";
+import { useEffect } from "react";
 
 const Carrito = React.createContext({});
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [storedValue, setValue] = useLocalCart([]);
+  const [cart, setCart] = useState(storedValue);
+
+  useEffect(() => {
+    setValue(cart);
+  }, [cart]); //eslint-disable-line
 
   function addToCart({ cartItem }) {
     let existe = false;

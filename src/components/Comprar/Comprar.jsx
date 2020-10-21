@@ -56,7 +56,7 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
     <>
       {loading ? (
         <Loading />
-      ) : isUser ? (
+      ) : (
         <div>
           <Link to="#" className="btn btn-compra" onClick={() => enviarOrden()}>
             COMPRAR
@@ -65,15 +65,6 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
             {id !== "" ? `Compra Exitosa! Su ID de compra es: "${id}" ` : id}{" "}
           </p>
         </div>
-      ) : (
-        <>
-          <p className="error-msg">
-            Tiene que iniciar sesion para continuar con la compra
-          </p>
-          <Link to="/ingresar" className="btn-prod">
-            Ingresar
-          </Link>
-        </>
       )}
     </>
   );

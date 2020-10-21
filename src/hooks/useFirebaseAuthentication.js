@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fb, db } from "fire/index";
 
 const useFirebaseAuthentication = () => {
-  const [isUser, setUser] = useState(null);
+  const [isUser, setUser] = useState({ uid: "", email: "", nombre: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -17,7 +17,7 @@ const useFirebaseAuthentication = () => {
           .get()
           .then((doc) => {
             if (!doc.exists) {
-              setError("El producto no existe! ");
+              setError("El usuario no existe! ");
               return;
             }
             setUser({ uid, email, ...doc.data() });
