@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     setValue(cart);
-  }, [cart]); //eslint-disable-line
+  }, []); //eslint-disable-line
 
   function addToCart({ cartItem }) {
     let existe = false;

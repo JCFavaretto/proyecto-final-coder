@@ -32,6 +32,7 @@
 
     list-style: none;
     margin-right: 1rem;
+
 }
 
 .enlace a,
@@ -52,13 +53,14 @@
 
 .burguer {
     display: block;
+    color: var(--color-fuente3);
 }
 
 .hide {
     display: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 610px) {
     .hide {
         display: block;
     }

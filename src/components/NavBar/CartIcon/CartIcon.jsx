@@ -20,7 +20,7 @@ const CartIcon = () => {
   return (
     <NavLink to="/carrito" activeClassName="activeLink">
       <FontAwesomeIcon icon={faShoppingCart} />
-      <span> {cantidad > 0 && cantidad} </span>
+      <span className="count-carrito"> {cantidad > 0 && cantidad} </span>
     </NavLink>
   );
 };

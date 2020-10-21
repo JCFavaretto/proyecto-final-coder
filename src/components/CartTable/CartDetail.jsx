@@ -20,7 +20,11 @@ const CartDetail = ({ id, count, title, price, thumbnail }) => {
       <td>${price}</td>
       <td>${price * count}</td>
       <td>
-        <FontAwesomeIcon icon={faTrashAlt} onClick={() => removeFromCart(id)} />
+        <FontAwesomeIcon
+          icon={faTrashAlt}
+          onClick={() => removeFromCart(id)}
+          size="lg"
+        />
       </td>
     </React.Fragment>
   );

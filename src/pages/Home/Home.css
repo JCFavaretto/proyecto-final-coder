@@ -14,14 +14,19 @@
 
 .titulo {
     font-size: calc(4rem + 1vw);
-    color: var(--color-fuente3);
+    color: var(--color-fuente2);
     margin: 0;
     border-bottom: 2px solid var(--color-fuente3)
 }
 
+.high-light {
+    color: var(--color-fuente3);
+    font-size: calc(4.5rem + 1vw);
+}
+
 .titulo2 {
     font-size: calc(2rem + 1vw);
-    color: var(--color-fuente3);
+    color: var(--color-fuente2);
     margin: 0;
     border-bottom: 2px solid var(--color-fuente3)
 }
@@ -29,5 +34,5 @@
 .txtHome {
     color: var(--color-fuente2);
     font-size: calc(1.4rem + 0.8vw);
-    padding: 0 1rem;
+    padding: 0 1rem 4rem 1rem;
 }

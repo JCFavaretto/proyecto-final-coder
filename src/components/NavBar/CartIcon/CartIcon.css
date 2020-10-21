@@ -1,0 +1,4 @@
+.count-carrito {
+    color: var(--color-fuente3);
+    font-size: calc(2.3rem + 1vw)
+}

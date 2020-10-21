@@ -15,7 +15,7 @@ const NavMenu = ({ className, showSideBar }) => {
   return (
     <nav className={className}>
       <ul className="nav-menu-items">
-        <li className="enlace">
+        <li className="enlace close">
           <FontAwesomeIcon
             className="ellipsis"
             icon={faTimes}
@@ -23,7 +23,7 @@ const NavMenu = ({ className, showSideBar }) => {
           />
         </li>
         <li className="navmenu-link logo">
-          <h1>
+          <h1 className="divisor">
             <ItemNav href="/" className="logo" texto="TecnoTienda" />
           </h1>
         </li>

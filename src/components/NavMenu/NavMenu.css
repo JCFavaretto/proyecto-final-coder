@@ -1,6 +1,6 @@
 .nav-menu {
     background-color: var(--color-fondo);
-    width: 250px;
+    width: calc(28rem + 1vw);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,11 +15,22 @@
     transition: 350ms;
 }
 
+@media (min-width: 610px) {
+    .nav-menu.active {
+        left: -100%
+    }
+}
+
 .nav-menu-items {
     display: flex;
     text-align: left;
     flex-direction: column;
     padding: 0;
+}
+
+.close {
+    text-align: right;
+    color: var(--color-fuente3);
 }
 
 .navmenu-link {
@@ -35,9 +46,14 @@
 .category-list {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 0.4rem 0;
+    padding-left: 2rem;
 }
 
 .sub-enlace {
     font-size: calc(1.6rem + 1vw);
+}
+
+.divisor {
+    border-bottom: 2px solid var(--color-fuente3);
 }
