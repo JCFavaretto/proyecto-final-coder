@@ -20,6 +20,9 @@ export default function App() {
         <BrowserRouter>
           <NavBar />
           <Switch>
+            <Route path="/user/:id">
+              <h1>Holis</h1>
+            </Route>
             <Route path="/productos/categories/:categoryID">
               <Category />
             </Route>

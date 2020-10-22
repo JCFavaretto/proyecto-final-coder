@@ -44,14 +44,19 @@ const NavMenu = ({ className, showSideBar }) => {
           </ul>
         </li>
         {isUser ? (
-          <li
-            className="navmenu-link"
-            onClick={() => {
-              fb.auth().signOut();
-            }}
-          >
-            <ItemNav href="/" texto=" Salir" />
-          </li>
+          <>
+            <li className=" enlace " onClick={() => {}}>
+              <ItemNav href={`/user/${isUser.uid}`} texto={isUser.nombre} />
+            </li>
+            <li
+              className=" enlace "
+              onClick={() => {
+                fb.auth().signOut();
+              }}
+            >
+              <ItemNav href="/" texto=" Salir" />
+            </li>
+          </>
         ) : (
           <li className="navmenu-link">
             <ItemNav href="/ingresar" texto="Ingresar" />
