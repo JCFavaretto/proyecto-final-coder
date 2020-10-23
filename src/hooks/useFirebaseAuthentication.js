@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fb, db } from "fire/index";
 
 const useFirebaseAuthentication = () => {
-  const [isUser, setUser] = useState({ uid: "", email: "", nombre: "" });
+  const [isUser, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 

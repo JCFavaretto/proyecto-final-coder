@@ -5,7 +5,7 @@ import React from "react";
 const Category = () => {
   return (
     <div className="home contenedor">
-      <h3 className="titulo">Lista de Productos</h3>
+      <h3 className="titulo divisor">Lista de Productos</h3>
       <Categories />
 
       <ItemCategoryList />

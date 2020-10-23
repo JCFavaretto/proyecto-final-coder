@@ -1,0 +1,14 @@
+.user-data {
+    text-align: left;
+    font-size: calc(1.6rem + 1vw);
+    color: var(--color-fuente2)
+}
+
+.user-data li {
+    list-style: none;
+}
+
+.dato {
+    color: var(--color-fuente3);
+    font-size: calc(1.8rem + 1vw);
+}

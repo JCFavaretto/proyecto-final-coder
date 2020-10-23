@@ -14,7 +14,7 @@ export default function Home({ greeting }) {
   return (
     <div className="home contenedor">
       <div className="saludo">
-        <h1 className="titulo">
+        <h1 className="titulo divisor">
           Bienvenido <span className={show()}>{greeting}!</span>
         </h1>
         <p className="txtHome divisor">

@@ -10,6 +10,7 @@ import Products from "pages/Products/Products";
 import Category from "pages/Category/Category";
 import Authorization from "pages/Authorization/Authorization";
 import "./App.css";
+import UserData from "pages/User/UserData";
 
 export default function App() {
   const [{ isUser }] = useContext(AuthContext);
@@ -21,7 +22,7 @@ export default function App() {
           <NavBar />
           <Switch>
             <Route path="/user/:id">
-              <h1>Holis</h1>
+              <UserData />
             </Route>
             <Route path="/productos/categories/:categoryID">
               <Category />

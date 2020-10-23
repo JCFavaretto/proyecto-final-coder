@@ -12,7 +12,7 @@ const Cart = () => {
 
   return (
     <div className="home contenedor cart">
-      <h1 className="titulo">Carrito</h1>
+      <h1 className="titulo ">Carrito</h1>
       {cart.length > 0 ? (
         <div>
           <CartTable />

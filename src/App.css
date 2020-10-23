@@ -47,3 +47,7 @@ body {
 .error-prod {
     margin: 6rem auto;
 }
+
+.divisor {
+    border-bottom: 2px solid var(--color-fuente3)
+}
