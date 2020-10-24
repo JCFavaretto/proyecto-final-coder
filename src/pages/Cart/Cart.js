@@ -7,7 +7,9 @@ import Comprar from "components/Comprar/Comprar";
 import AuthContext from "context/AuthContext";
 
 const Cart = () => {
-  const [{ cart, setCart, totalGasto, updateStock }] = useContext(carrito);
+  const [{ cart, setCart, emptyStorage, totalGasto, updateStock }] = useContext(
+    carrito
+  );
   const [{ isUser }] = useContext(AuthContext);
 
   return (
@@ -22,6 +24,7 @@ const Cart = () => {
               setCart={setCart}
               total={totalGasto()}
               updateStock={updateStock}
+              emptyStorage={emptyStorage}
             />
           ) : (
             <>

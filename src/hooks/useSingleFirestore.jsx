@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { db } from "../fire";
 
-export function useSingleFirestore() {
-  const { id } = useParams();
+export function useSingleFirestore(id) {
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

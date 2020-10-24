@@ -13,41 +13,43 @@ import "./App.css";
 import UserData from "pages/User/UserData";
 
 export default function App() {
-  const [{ isUser }] = useContext(AuthContext);
+  const [{ isUser, loading }] = useContext(AuthContext);
 
   return (
     <div className="App">
-      <CartProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Switch>
-            <Route path="/user/:id">
-              <UserData />
-            </Route>
-            <Route path="/productos/categories/:categoryID">
-              <Category />
-            </Route>
-            <Route path="/productos/:id">
-              <ItemDetailContainer />
-            </Route>
-            <Route exact path="/productos">
-              <Products />
-            </Route>
-            <Route path="/carrito">
-              <Cart />
-            </Route>
-            <Route path="/ingresar">
-              {isUser ? <Redirect to="/" /> : <Authorization />}
-            </Route>
-            <Route path="/home">
-              <Home greeting={isUser ? isUser.nombre : "a la tecnotienda"} />
-            </Route>
-            <Route path="/">
-              <Redirect to="/home" />
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </CartProvider>
+      {!loading && (
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Switch>
+              <Route path="/user/:id">
+                <UserData />
+              </Route>
+              <Route path="/productos/categories/:categoryID">
+                <Category />
+              </Route>
+              <Route path="/productos/:id">
+                <ItemDetailContainer />
+              </Route>
+              <Route exact path="/productos">
+                <Products />
+              </Route>
+              <Route path="/carrito">
+                <Cart />
+              </Route>
+              <Route path="/ingresar">
+                {isUser.loggedIn ? <Redirect to="/" /> : <Authorization />}
+              </Route>
+              <Route path="/home">
+                <Home greeting={isUser ? isUser.nombre : "a la tecnotienda"} />
+              </Route>
+              <Route path="/">
+                <Redirect to="/home" />
+              </Route>
+            </Switch>
+          </BrowserRouter>
+        </CartProvider>
+      )}
     </div>
   );
 }

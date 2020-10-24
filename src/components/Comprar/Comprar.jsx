@@ -5,7 +5,7 @@ import { db } from "fire/index";
 import * as fb from "firebase/app";
 import AuthContext from "context/AuthContext";
 
-const Comprar = ({ cart, setCart, total, updateStock }) => {
+const Comprar = ({ cart, setCart, total, updateStock, emptyStorage }) => {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -21,7 +21,7 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
       },
       items: { cart },
       date: fb.firestore.Timestamp.fromDate(new Date()),
-      total: { total },
+      total: total,
     };
 
     setLoading(true);
@@ -47,6 +47,7 @@ const Comprar = ({ cart, setCart, total, updateStock }) => {
         updateStock(cart);
         setTimeout(() => {
           setCart(() => []);
+          emptyStorage();
           history.push("/productos");
         }, 2000);
       });

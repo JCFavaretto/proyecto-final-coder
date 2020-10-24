@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { fb, db } from "fire/index";
 
 const useFirebaseAuthentication = () => {
-  const [isUser, setUser] = useState(null);
+  const [isUser, setUser] = useState([
+    { loggedIn: false, uid: [], wishlist: [], orders: [] },
+  ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -10,6 +12,7 @@ const useFirebaseAuthentication = () => {
     const unlisten = fb.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
         const { uid, email } = authUser;
+        const loggedIn = true;
         setLoading(true);
         const userCollection = db.collection("users");
         const user = userCollection.doc(uid);
@@ -20,7 +23,7 @@ const useFirebaseAuthentication = () => {
               setError("El usuario no existe! ");
               return;
             }
-            setUser({ uid, email, ...doc.data() });
+            setUser({ uid, email, loggedIn, ...doc.data() });
           })
           .catch((error) => {
             setError(error);
@@ -30,7 +33,7 @@ const useFirebaseAuthentication = () => {
             setLoading(false);
           }); //eslint-disable-line
       } else {
-        setUser(null);
+        setUser([{ loggedIn: false, uid: [], wishlist: [], orders: [] }]);
       }
     });
     return () => {

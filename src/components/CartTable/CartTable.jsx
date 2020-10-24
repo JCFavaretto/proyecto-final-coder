@@ -6,7 +6,7 @@ import "./CartTable.css";
 const CartTable = () => {
   const [{ cart, totalGasto }] = useContext(carrito);
   return (
-    <table className="home contenedor tabla">
+    <table className="home tabla">
       <thead className="head">
         <tr>
           <th scope="col">Cantidad</th>

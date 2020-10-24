@@ -42,10 +42,14 @@ export function NavBar() {
               texto="Productos"
             />
           </li>
-          {isUser ? (
+          {isUser.loggedIn ? (
             <>
               <li className="hide enlace " onClick={() => {}}>
-                <ItemNav href={`/user/${isUser.uid}`} texto={isUser.nombre} />
+                <ItemNav
+                  href={`/user/${isUser.uid}`}
+                  activeClass="activeLink"
+                  texto={isUser.nombre}
+                />
               </li>
               <li
                 className="hide enlace "

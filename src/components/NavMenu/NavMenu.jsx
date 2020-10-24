@@ -9,7 +9,7 @@ import { useContext } from "react";
 import AuthContext from "context/AuthContext";
 
 const NavMenu = ({ className, showSideBar }) => {
-  const { categories } = useCategory();
+  const { loading, categories } = useCategory();
   const [{ isUser }] = useContext(AuthContext);
 
   return (
@@ -30,7 +30,7 @@ const NavMenu = ({ className, showSideBar }) => {
         <li className="navmenu-link">
           <ItemNav href="/productos" texto="Productos" />
           <ul className="category-list">
-            {Array.isArray(categories) &&
+            {!loading &&
               categories.map((aux) => {
                 return (
                   <li className="sub-enlace" key={aux.id}>
@@ -43,7 +43,7 @@ const NavMenu = ({ className, showSideBar }) => {
               })}
           </ul>
         </li>
-        {isUser ? (
+        {isUser.loggedIn ? (
           <>
             <li className=" enlace " onClick={() => {}}>
               <ItemNav href={`/user/${isUser.uid}`} texto={isUser.nombre} />

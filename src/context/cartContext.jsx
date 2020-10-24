@@ -7,12 +7,12 @@ import { useEffect } from "react";
 const Carrito = React.createContext({});
 
 export const CartProvider = ({ children }) => {
-  const [storedValue, setValue] = useLocalCart([]);
+  const [storedValue, setValue, emptyStorage] = useLocalCart();
   const [cart, setCart] = useState(storedValue);
 
   useEffect(() => {
     setValue(cart);
-  }, []); //eslint-disable-line
+  }, [cart]);
 
   function addToCart({ cartItem }) {
     let existe = false;
@@ -114,6 +114,7 @@ export const CartProvider = ({ children }) => {
           cart,
           setCart,
           addToCart,
+          emptyStorage,
           calcularCantidad,
           totalGasto,
           returnCount,

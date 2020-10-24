@@ -12,13 +12,21 @@ export function useLocalCart() {
   });
 
   const setValue = (value) => {
+    setStoredValue(value);
     try {
-      setStoredValue(value);
       window.localStorage.setItem("cart", JSON.stringify(value));
     } catch (err) {
       console.log(err);
     }
   };
 
-  return [storedValue, setValue];
+  const emptyStorage = () => {
+    try {
+      window.localStorage.clear();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return [storedValue, setValue, emptyStorage];
 }

@@ -11,9 +11,6 @@ export function useCategory() {
     itemCollection
       .get()
       .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          console.log("No hay resultados!");
-        }
         setCategories(
           querySnapshot.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };

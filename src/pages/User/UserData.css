@@ -12,3 +12,17 @@
     color: var(--color-fuente3);
     font-size: calc(1.8rem + 1vw);
 }
+
+.user-options {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.user-options h4:hover {
+    cursor: pointer;
+}
+
+.selected {
+    color: var(--color-fuente3);
+}

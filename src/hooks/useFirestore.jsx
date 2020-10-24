@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../fire";
 
-export function useFirestore(max) {
+export function useFirestore(max = 10000) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 

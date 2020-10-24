@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   function isFav(id) {
     let existe = false;
-    if (isUser) {
+    if (isUser.loggedIn) {
       isUser.wishlist.forEach((item) => {
         if (item === id) {
           existe = true;

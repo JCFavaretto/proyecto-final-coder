@@ -4,14 +4,14 @@ import Carrito from "../../context/cartContext";
 import "./ItemCount.css";
 import { useSingleFirestore } from "../../hooks/useSingleFirestore";
 
-export default function ItemCount({ initial, max, onAdd }) {
+export default function ItemCount({ id, initial, max, onAdd }) {
   const [count, setCount] = useState(initial);
 
   const [{ addToCart }] = useContext(Carrito);
   const history = useHistory();
 
-  const { producto } = useSingleFirestore();
-  const { id, title, thumbnail, price } = producto;
+  const { producto } = useSingleFirestore(id);
+  const { title, thumbnail, price } = producto;
 
   const cartItem = {
     count,

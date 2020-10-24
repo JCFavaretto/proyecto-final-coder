@@ -14,10 +14,8 @@ const Item = ({ id, img, nombre, precio }) => {
   const [fav, setFav] = useState(false);
 
   function handleClick() {
-    handleFav(id);
-
+    handleFav(id, img, nombre, precio);
     setFav(!fav);
-
     return false;
   }
 
