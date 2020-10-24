@@ -19,7 +19,6 @@ export function useOrders() {
             .get()
             .then((doc) => {
               const item = { id: id, ...doc.data() };
-              console.log(item);
               return item;
             })
             .then((item) => {
@@ -33,14 +32,14 @@ export function useOrders() {
             })
             .catch((error) => {
               console.log(
-                "Hubo un error buscando la lista de deseados: ",
+                "Hubo un error buscando la lista de ordenes de compra: ",
                 error
               );
             });
         });
       }
     }
-  }, [isUser]); //eslint-disable-line
+  }, [isUser.loggedIn, isUser.orders]);
 
   return { loading, orders };
 }

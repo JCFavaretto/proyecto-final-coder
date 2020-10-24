@@ -43,9 +43,13 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  function updateOrders(id) {
+    isUser.orders.push(id);
+  }
+
   return (
     <AuthContext.Provider
-      value={[{ isUser, loading, error, isFav, handleFav }]}
+      value={[{ isUser, loading, error, isFav, handleFav, updateOrders }]}
     >
       {children}
     </AuthContext.Provider>

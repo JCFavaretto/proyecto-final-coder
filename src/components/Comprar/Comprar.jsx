@@ -9,7 +9,7 @@ const Comprar = ({ cart, setCart, total, updateStock, emptyStorage }) => {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  const [{ isUser }] = useContext(AuthContext);
+  const [{ isUser, updateOrders }] = useContext(AuthContext);
   const fullName = isUser.nombre + " " + isUser.apellido;
 
   const enviarOrden = () => {
@@ -19,7 +19,7 @@ const Comprar = ({ cart, setCart, total, updateStock, emptyStorage }) => {
         phone: isUser.phoneNumber,
         email: isUser.email,
       },
-      items: { cart },
+      cart: cart,
       date: fb.firestore.Timestamp.fromDate(new Date()),
       total: total,
     };
@@ -33,6 +33,7 @@ const Comprar = ({ cart, setCart, total, updateStock, emptyStorage }) => {
         return id;
       })
       .then((id) => {
+        updateOrders(id);
         db.collection("users")
           .doc(isUser.uid)
           .update({

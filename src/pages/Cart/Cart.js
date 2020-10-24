@@ -17,7 +17,7 @@ const Cart = () => {
       <h1 className="titulo ">Carrito</h1>
       {cart.length > 0 ? (
         <div>
-          <CartTable />
+          <CartTable cart={cart} totalGasto={totalGasto()} />
           {isUser ? (
             <Comprar
               cart={cart}

@@ -34,7 +34,7 @@ export function useWishlist() {
           });
       });
     }
-  }, [isUser]); //eslint-disable-line
+  }, [isUser.loggedIn, isUser.wishlist]);
 
   return { loading, wishlist };
 }

@@ -5,7 +5,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import Carrito from "context/cartContext";
 
-const CartDetail = ({ id, count, title, price, thumbnail }) => {
+const CartDetail = ({ id, count, title, price, thumbnail, order }) => {
   const [{ removeFromCart }] = useContext(Carrito);
 
   return (
@@ -19,13 +19,15 @@ const CartDetail = ({ id, count, title, price, thumbnail }) => {
       </td>
       <td>${price}</td>
       <td>${price * count}</td>
-      <td>
-        <FontAwesomeIcon
-          icon={faTrashAlt}
-          onClick={() => removeFromCart(id)}
-          size="lg"
-        />
-      </td>
+      {!order && (
+        <td>
+          <FontAwesomeIcon
+            icon={faTrashAlt}
+            onClick={() => removeFromCart(id)}
+            size="lg"
+          />
+        </td>
+      )}
     </React.Fragment>
   );
 };

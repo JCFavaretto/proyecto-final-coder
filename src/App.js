@@ -41,7 +41,11 @@ export default function App() {
                 {isUser.loggedIn ? <Redirect to="/" /> : <Authorization />}
               </Route>
               <Route path="/home">
-                <Home greeting={isUser ? isUser.nombre : "a la tecnotienda"} />
+                <Home
+                  greeting={
+                    isUser.loggedIn ? isUser.nombre : "a la tecnotienda"
+                  }
+                />
               </Route>
               <Route path="/">
                 <Redirect to="/home" />

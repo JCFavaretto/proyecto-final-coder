@@ -30,7 +30,7 @@ const Item = ({ id, img, nombre, precio }) => {
       ) : (
         <>
           <img className=" img-lista" src={img} alt="" />
-          {isUser && (
+          {isUser.loggedIn && (
             <div className="fav">
               <FontAwesomeIcon
                 icon={fav ? faStar2 : faStar}

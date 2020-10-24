@@ -7,10 +7,10 @@ import User from "components/User/User";
 
 const UserData = () => {
   const [{ isUser }] = useContext(AuthContext);
-  const [pag, setPag] = useState("data");
-  const [data, setData] = useState("titulo2 selected");
+  const [pag, setPag] = useState("orders");
+  const [data, setData] = useState("titulo2");
   const [wish, setWish] = useState("titulo2");
-  const [orders, setOrders] = useState("titulo2");
+  const [orders, setOrders] = useState("titulo2  selected");
 
   function handleClick(newPag) {
     if (pag !== newPag) {

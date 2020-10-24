@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import carrito from "../../context/cartContext";
+import React from "react";
 import CartDetail from "./CartDetail";
 import "./CartTable.css";
 
-const CartTable = () => {
-  const [{ cart, totalGasto }] = useContext(carrito);
+const CartTable = ({ cart, totalGasto, order = false }) => {
   return (
     <table className="home tabla">
       <thead className="head">
@@ -27,6 +25,7 @@ const CartTable = () => {
                 title={title}
                 price={price}
                 thumbnail={thumbnail}
+                order={order}
               />
             </tr>
           ))}
@@ -35,9 +34,9 @@ const CartTable = () => {
       <tfoot>
         <tr>
           <th scope="row" colSpan="4">
-            GASTO TOTAL:{" "}
+            GASTO TOTAL:
           </th>
-          <td>${totalGasto()} </td>
+          <td>${totalGasto} </td>
         </tr>
       </tfoot>
     </table>
