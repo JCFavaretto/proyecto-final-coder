@@ -30,15 +30,46 @@
 .compra {
     padding: 0;
     text-align: left;
-
-}
-
-.compra li {
     list-style: none;
+
 }
+
+
+.orders {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+
+}
+
 
 .ali-left {
     padding: 0;
     list-style: none;
     text-align: left;
+}
+
+.lista-orders {
+    flex: 0 0 calc(35% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(1rem + 60vh);
+    margin-top: 1rem;
+}
+
+.ali-left li {
+    font-size: calc(0.8rem + 1vw);
+    margin: 0 auto;
+}
+
+
+.ali-left li:hover {
+    cursor: pointer
+}
+
+.texto-order {
+    margin: 0 auto;
+    text-align: left;
+
 }

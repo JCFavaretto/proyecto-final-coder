@@ -12,7 +12,7 @@ const CartDetail = ({ id, count, title, price, thumbnail, order }) => {
     <React.Fragment>
       <th scope="row">{count}</th>
       <td>
-        <img src={thumbnail} alt={title} />
+        <img className="cart-img" src={thumbnail} alt={title} />
       </td>
       <td>
         <ItemNav href={`/productos/${id}`} texto={title} />

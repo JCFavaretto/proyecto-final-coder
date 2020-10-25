@@ -51,3 +51,7 @@ body {
 .divisor {
     border-bottom: 2px solid var(--color-fuente3)
 }
+
+ul {
+    padding: 0;
+}

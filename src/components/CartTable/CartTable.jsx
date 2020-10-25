@@ -18,7 +18,7 @@ const CartTable = ({ cart, totalGasto, order = false }) => {
       <tbody className="body">
         {Array.isArray(cart) &&
           cart.map(({ id, count, title, price, thumbnail }) => (
-            <tr key={id}>
+            <tr className="row" key={id}>
               <CartDetail
                 id={id}
                 count={count}

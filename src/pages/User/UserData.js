@@ -4,13 +4,14 @@ import "pages/User/UserData.css";
 import Wishlist from "components/User/Wishlist";
 import Orders from "components/User/Orders";
 import User from "components/User/User";
+import { Redirect } from "react-router-dom";
 
 const UserData = () => {
   const [{ isUser }] = useContext(AuthContext);
-  const [pag, setPag] = useState("orders");
-  const [data, setData] = useState("titulo2");
+  const [pag, setPag] = useState("data");
+  const [data, setData] = useState("titulo2  selected");
   const [wish, setWish] = useState("titulo2");
-  const [orders, setOrders] = useState("titulo2  selected");
+  const [orders, setOrders] = useState("titulo2 ");
 
   function handleClick(newPag) {
     if (pag !== newPag) {
@@ -34,27 +35,33 @@ const UserData = () => {
 
   return (
     <div className="home contenedor">
-      <h2 className="titulo divisor">Datos del Usuario</h2>
-      <div>
-        <div className="user-options divisor">
-          <h4 className={wish} onClick={() => handleClick("wishlist")}>
-            Wishlist
-          </h4>
-          <h4 className={data} onClick={() => handleClick("data")}>
-            Mis Datos
-          </h4>
-          <h4 className={orders} onClick={() => handleClick("orders")}>
-            Mis Compras
-          </h4>
-        </div>
-        {pag === "data" ? (
-          <User isUser={isUser} />
-        ) : pag === "wishlist" ? (
-          <Wishlist isUser={isUser} />
-        ) : (
-          <Orders isUser={isUser} />
-        )}
-      </div>
+      {isUser.loggedIn ? (
+        <>
+          <h2 className="titulo divisor">Datos del Usuario</h2>
+          <div>
+            <div className="user-options divisor">
+              <h4 className={wish} onClick={() => handleClick("wishlist")}>
+                Wishlist
+              </h4>
+              <h4 className={data} onClick={() => handleClick("data")}>
+                Mis Datos
+              </h4>
+              <h4 className={orders} onClick={() => handleClick("orders")}>
+                Mis Compras
+              </h4>
+            </div>
+            {pag === "data" ? (
+              <User isUser={isUser} />
+            ) : pag === "wishlist" ? (
+              <Wishlist isUser={isUser} />
+            ) : (
+              <Orders />
+            )}
+          </div>
+        </>
+      ) : (
+        <Redirect to="/" />
+      )}
     </div>
   );
 };

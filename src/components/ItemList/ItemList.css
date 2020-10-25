@@ -6,31 +6,31 @@
 
 .lista-prod {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-self: center;
     list-style: none;
     padding: 0;
     flex-wrap: wrap;
 }
 
-.lista-prod li {
-    flex: 0 0 calc(85%);
+.item {
+    flex: 0 1 calc(85%);
 }
 
 @media only screen and (min-width: 558px) {
-    .lista-prod li {
-        flex-basis: calc(50% - 0.5rem);
+    .item {
+        flex-basis: calc(50% - 1rem);
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .lista-prod li {
-        flex-basis: calc(33% - 0.5rem);
+    .item {
+        flex-basis: calc(33% - 1rem);
     }
 }
 
 @media only screen and (min-width: 998px) {
-    .lista-prod li {
-        flex-basis: calc(25% - 0.5rem);
+    .item {
+        flex-basis: calc(25% - 1rem);
     }
 }
