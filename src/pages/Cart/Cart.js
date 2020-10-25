@@ -18,7 +18,7 @@ const Cart = () => {
       {cart.length > 0 ? (
         <div>
           <CartTable cart={cart} totalGasto={totalGasto()} />
-          {isUser ? (
+          {isUser.loggedIn ? (
             <Comprar
               cart={cart}
               setCart={setCart}

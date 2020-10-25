@@ -6,7 +6,7 @@
 
 .lista-prod {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-self: center;
     list-style: none;
     padding: 0;
@@ -24,6 +24,11 @@
 }
 
 @media only screen and (min-width: 768px) {
+
+    .lista-prod {
+        justify-content: flex-start;
+    }
+
     .item {
         flex-basis: calc(33% - 1rem);
     }

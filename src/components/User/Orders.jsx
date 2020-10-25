@@ -36,10 +36,6 @@ const Orders = () => {
                 <p className=" titulo2 divisor">
                   ID de la compra:<span className="dato"> {order.id}</span>
                 </p>
-
-                <p className="texto-order">
-                  Gasto Total: <span className="dato"> {order.total}</span>
-                </p>
                 <p className="texto-order">
                   Fecha de la compra:
                   <span className="dato">

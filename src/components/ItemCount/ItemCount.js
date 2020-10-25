@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Carrito from "../../context/cartContext";
 import "./ItemCount.css";
@@ -20,11 +20,6 @@ export default function ItemCount({ id, initial, max, onAdd }) {
     thumbnail,
     price,
   };
-
-  useEffect(() => {
-    onAdd(count);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count]);
 
   function restar() {
     if (count > 0) {
@@ -48,13 +43,14 @@ export default function ItemCount({ id, initial, max, onAdd }) {
     e.preventDefault();
     addToCart({ cartItem });
     setTimeout(() => {
+      onAdd(count);
       if (count > 0) history.push("/productos");
     }, 300);
   };
 
   return (
     <form className="item-count" onSubmit={onFormSubmit}>
-      <div className="btn btn-contador">
+      <div className=" btn-contador">
         <button className="btn-resta" type="button" onClick={restar}>
           -
         </button>

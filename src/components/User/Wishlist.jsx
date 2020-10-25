@@ -13,13 +13,14 @@ const Wishlist = ({ isUser }) => {
       ) : (
         <ul className="lista-prod">
           {isUser.loggedIn &&
-            wishlist.map(({ id, picture, title, price }) => (
+            wishlist.map(({ id, picture, title, price, stock }) => (
               <Item
                 key={id}
                 id={id}
                 img={picture}
                 nombre={title}
                 precio={price}
+                stock={stock}
               />
             ))}
         </ul>

@@ -4,7 +4,7 @@ import "pages/User/UserData.css";
 import Wishlist from "components/User/Wishlist";
 import Orders from "components/User/Orders";
 import User from "components/User/User";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 const UserData = () => {
   const [{ isUser }] = useContext(AuthContext);
@@ -53,9 +53,31 @@ const UserData = () => {
             {pag === "data" ? (
               <User isUser={isUser} />
             ) : pag === "wishlist" ? (
-              <Wishlist isUser={isUser} />
-            ) : (
+              <>
+                {isUser.wishlist.length > 0 ? (
+                  <Wishlist isUser={isUser} />
+                ) : (
+                  <>
+                    <h2 className="dato">
+                      No tiene ningun elemento en su lista de deseados.
+                    </h2>
+
+                    <Link to="/productos" className="btn-prod">
+                      Ir a Productos
+                    </Link>
+                  </>
+                )}
+              </>
+            ) : isUser.orders.length > 0 ? (
               <Orders />
+            ) : (
+              <>
+                <h2 className="dato">Todavia no realizo ninguna compra.</h2>
+
+                <Link to="/productos" className="btn-prod">
+                  Ir a Productos
+                </Link>
+              </>
             )}
           </div>
         </>

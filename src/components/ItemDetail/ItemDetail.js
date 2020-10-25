@@ -7,8 +7,7 @@ import Carrito from "../../context/cartContext";
 const ItemDetail = ({ id, title, imagen, price, stock, description }) => {
   const [{ returnCount }] = useContext(Carrito);
 
-  const count = returnCount({ id });
-  const [contador, setContador] = useState(count);
+  const [contador, setContador] = useState(returnCount({ id }));
 
   const onAdd = (e) => {
     setContador(e);

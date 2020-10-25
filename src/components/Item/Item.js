@@ -8,10 +8,20 @@ import Loading from "components/Loading/Loading";
 import "./Item.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import Carrito from "context/cartContext";
 
-const Item = ({ id, img, nombre, precio }) => {
+const Item = ({ id, img, nombre, precio, stock }) => {
   const [{ isUser, loading, isFav, handleFav }] = useContext(AuthContext);
   const [fav, setFav] = useState(false);
+
+  const [{ returnCount }] = useContext(Carrito);
+
+  const [contador, setContador] = useState(returnCount({ id }));
+
+  const onAdd = (e) => {
+    setContador(e);
+  };
 
   function handleClick() {
     handleFav(id, img, nombre, precio);
@@ -42,6 +52,8 @@ const Item = ({ id, img, nombre, precio }) => {
           <div className="bordes txt-lista">
             <NavLink to={`/productos/${id}`}>{nombre}</NavLink>
             <p className="precio-lista">${precio} </p>
+
+            <ItemCount id={id} initial={contador} max={stock} onAdd={onAdd} />
           </div>
         </>
       )}{" "}

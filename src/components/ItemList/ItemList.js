@@ -14,13 +14,14 @@ export default function ItemList({ max = 12 }) {
       ) : (
         <ul className="lista-prod">
           {Array.isArray(productos) &&
-            productos.map(({ id, picture, title, price }) => (
+            productos.map(({ id, picture, title, price, stock }) => (
               <Item
                 key={id}
                 id={id}
                 img={picture}
                 nombre={title}
                 precio={price}
+                stock={stock}
               />
             ))}
         </ul>

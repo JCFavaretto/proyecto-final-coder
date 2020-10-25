@@ -25,7 +25,6 @@
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-fuente2);
     width: 100%;
     padding: 0.5rem 1rem;
     margin: 00.5rem;
@@ -35,8 +34,17 @@
 
 .txt-lista a {
     text-decoration: none;
-    color: var(--color-fuente3);
+    color: var(--color-fuente2);
     flex-basis: calc(60% - 3px);
+    font-size: calc(1.5rem + 1vw);
+    transition: 500ms;
+    padding: 0.8rem;
+}
+
+.txt-lista a:hover {
+    padding: 0.4rem;
+    font-size: calc(2rem + 1vw);
+
 }
 
 .txt-lista p {
@@ -44,10 +52,6 @@
 }
 
 
-.txt-lista a:hover {
-    color: var(--color-fondo);
-
-}
 
 .txt-lista a,
 .txt-lista p {
@@ -61,7 +65,7 @@
     font-weight: bold;
     color: var(--color-fuente2);
     border-radius: 2rem;
-    margin: 0;
+    margin: 0 0 1rem 0;
 }
 
 
